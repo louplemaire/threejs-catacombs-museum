@@ -11,6 +11,19 @@ import ceillingNormalSource from '../textures/ceiling/normal.jpg'
 import ceillingRoughnessSource from '../textures/ceiling/roughness.jpg'
 import ceillingAlphaSource from '../textures/ceiling/alphaMap.jpg'
 
+const textureLoader = new THREE.TextureLoader()
+
+const ceillingColorTexture = textureLoader.load(ceillingColorSource)
+ceillingColorTexture.repeat.x = 4
+ceillingColorTexture.repeat.y = 1
+ceillingColorTexture.wrapS = THREE.RepeatWrapping
+ceillingColorTexture.wrapT = THREE.RepeatWrapping
+
+const ceillingAmbientOcclusionTexture = textureLoader.load(ceillingAmbientOcclusionSource)
+const ceillingDisplacementTexture = textureLoader.load(ceillingDisplacementSource)
+const ceillingNormalTexture = textureLoader.load(ceillingNormalSource)
+const ceillingRoughnessTexture = textureLoader.load(ceillingRoughnessSource)
+const ceillingAlphaTexture = textureLoader.load(ceillingAlphaSource)
 
 /**
  * Ceillings
@@ -22,7 +35,19 @@ export default class Ceillings {
 
         const ceilling = new THREE.Mesh(
             new THREE.PlaneGeometry(_length, _width, 40, 40),
-            new THREE.MeshNormalMaterial()
+            new THREE.MeshStandardMaterial
+            (
+                {
+                    map: ceillingColorTexture,
+                    aoMap: ceillingAmbientOcclusionTexture,
+                    displacementMap: ceillingDisplacementTexture,
+                    displacementScale: 0,
+                    roughnessMap: ceillingRoughnessTexture,
+                    alphaMap: ceillingAlphaTexture,
+                    normalMap: ceillingNormalTexture,
+                    side: THREE.DoubleSide
+                }
+            )
         )
 
         ceilling.position.set(0, 2, 0)

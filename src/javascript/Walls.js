@@ -38,16 +38,16 @@ export default class Walls {
             {
                 map: wallColorTexture,
                 aoMap: wallAmbientOcclusionTexture,
-                displacementMap: wallDisplacementTexture,
-                displacementScale: 0.2,
-                roughnessMap: wallRoughnessTexture,
-                alphaMap: wallAlphaTexture,
+                // displacementMap: wallDisplacementTexture,
+                // displacementScale: 0.2,
+                // roughnessMap: wallRoughnessTexture,
+                // alphaMap: wallAlphaTexture,
                 normalMap: wallNormalTexture
             }
         )
 
         const wall = new THREE.Mesh(
-            new THREE.BoxGeometry(_width,_height,_depth, 10, 10, 10),
+            new THREE.BoxGeometry(_width,_height,_depth, 5, 5, 5),
             material1
         )
         wall.position.set(_x,1,_z)
