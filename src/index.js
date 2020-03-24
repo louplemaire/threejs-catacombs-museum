@@ -52,7 +52,7 @@ scene.add(walls.group)
  * Camera
  */
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 30)
-camera.position.z = 8
+camera.position.set(0,1,8)
 scene.add(camera)
 
 /**

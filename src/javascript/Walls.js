@@ -12,7 +12,7 @@ export default class Walls {
         const material1 = new THREE.MeshStandardMaterial()
 
         const firstSegment = new THREE.Group()
-        firstSegment.position.set(0,0,-6)
+        firstSegment.position.set(0,1,-6)
         this.group.add(firstSegment)
 
         const box1 = new THREE.Mesh(
@@ -26,7 +26,7 @@ export default class Walls {
             new THREE.BoxGeometry(2,2,12),
             material1
         )
-        box2.position.set(-1,0,0)
+        box2.position.set(-2,0,0)
         firstSegment.add(box2)
 
         const box3 = new THREE.Mesh(
@@ -37,7 +37,7 @@ export default class Walls {
         firstSegment.add(box3)
 
         const secondSegment = new THREE.Group()
-        secondSegment.position.set(13,0,-11)
+        secondSegment.position.set(13,1,-11)
         this.group.add(secondSegment)
 
         const box4 = new THREE.Mesh(
@@ -72,7 +72,36 @@ export default class Walls {
             new THREE.BoxGeometry(2,2,8),
             material1
         )
-        box8.position.set(17,0,-2.5)
+        box8.position.set(17,0,-3)
         secondSegment.add(box8)
+
+        const thirdSegment = new THREE.Group()
+        thirdSegment.position.set(28, 1, -25)
+        this.group.add(thirdSegment)
+
+        const centerPilar = new THREE.Mesh(
+            new THREE.CylinderGeometry(1,1,2,64),
+            material1
+        )
+        thirdSegment.add(centerPilar)
+
+        const arcLeft = new THREE.Mesh(
+            new THREE.CylinderGeometry(5,5,2,64,12),
+            material1
+        )
+        arcLeft.position.set(0,0,0)
+        arcLeft.rotation.set(0,Math.PI * 0.5,0)
+        arcLeft.side = THREE.DoubleSide
+        thirdSegment.add(arcLeft)
+
+        // const arc2 = new THREE.Mesh(
+        //     new THREE.CylinderGeometry(7,7,2,64,12,true,3,3),
+        //     material1
+        // )
+        // arc2.position.set(1.5,0,3)
+        // arc2.rotation.set(0,Math.PI,0)
+        // arc2.side = THREE.DoubleSide
+        // thirdSegment.add(arc2)
+
     }
 }
