@@ -126,7 +126,6 @@ fourthSegment.add(wall19.group)
 const wall20 = new Walls(1,2,2,9.5,9)
 fourthSegment.add(wall20.group)
 
-
 /**
  * Camera
  */
