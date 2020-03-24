@@ -45,14 +45,47 @@ const ceiling = new Ceilings()
 scene.add(ceiling.group)
 
 //Add walls
-const walls = new Walls()
-scene.add(walls.group)
+
+//First segment
+const firstSegment = new THREE.Group()
+firstSegment.position.set(0,1,-6)
+scene.add(firstSegment)
+
+const walls1 = new Walls(8,2,10,5,0,1)
+firstSegment.add(walls1.group)
+
+const walls2 = new Walls(2,2,12,-2,0,0)
+firstSegment.add(walls2.group)
+
+const walls3 = new Walls(10,2,3,4,0,-7.5)
+firstSegment.add(walls3.group)
+
+
+//Second Segment
+const secondSegment = new THREE.Group()
+secondSegment.position.set(13,1,-11)
+scene.add(secondSegment)
+
+const walls4 = new Walls(8,2,1,0,0,-4.5)
+secondSegment.add(walls4.group)
+
+const walls5 = new Walls(8,2,1,0,0,4.5)
+secondSegment.add(walls5.group)
+
+const walls6 = new Walls(12,2,3,10,0,2.5)
+secondSegment.add(walls6.group)
+
+const walls7 = new Walls(10,2,6,9,0,-4)
+secondSegment.add(walls7.group)
+
+const walls8 = new Walls(2,2,8,17,0,-3)
+secondSegment.add(walls8.group)
 
 /**
  * Camera
  */
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 30)
-camera.position.z = 8
+camera.position.set(0,1,8)
 scene.add(camera)
 
 /**
