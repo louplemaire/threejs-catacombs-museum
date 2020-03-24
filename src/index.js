@@ -4,7 +4,7 @@
 import './style/main.styl'
 import * as THREE from 'three'
 import Walls from './javascript/Walls.js'
-import Ceilings from './javascript/ Ceilings.js'
+import Ceilings from './javascript/Ceilings.js'
 import Floors from './javascript/Floors.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 // import { TweenLite } from 'gsap/all'
@@ -33,22 +33,20 @@ window.addEventListener('mousemove', (_event) => {
  */
 const scene = new THREE.Scene()
 
+/**
+ * Objects
+ */
 //Add floor
 const floor = new Floors(10)
 scene.add(floor.group)
 
 //Add ceiling
-const ceiling = new Ceillings()
+const ceiling = new Ceilings(10)
 scene.add(ceiling.group)
 
 //Add walls
 const walls = new Walls()
 scene.add(walls.group)
-
-/**
- * Objects
- */
-
 
 /**
  * Camera
@@ -72,7 +70,6 @@ document.body.appendChild(renderer.domElement)
 const cameraControls = new OrbitControls(camera, renderer.domElement)
 cameraControls.zoomSpeed = 0.3
 cameraControls.enableDamping = true
-
 
 /**
  * Resize
