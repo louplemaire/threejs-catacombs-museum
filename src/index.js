@@ -7,6 +7,7 @@ import Walls from './javascript/Walls.js'
 import Ceilings from './javascript/Ceilings.js'
 import Floors from './javascript/Floors.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
+import CircleRoom from './javascript/CircleRoom'
 // import { TweenLite } from 'gsap/all'
 
 /**
@@ -41,7 +42,7 @@ const floor = new Floors(10, 2, 0)
 scene.add(floor.group)
 
 //Add ceiling
-const ceiling = new Ceilings(10, 2)
+const ceiling = new Ceilings(10, 2, 0, 0,)
 scene.add(ceiling.group)
 
 //Add walls

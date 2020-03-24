@@ -30,7 +30,7 @@ const ceillingAlphaTexture = textureLoader.load(ceillingAlphaSource)
  */
 
 export default class Ceillings {
-    constructor(_length, _width){
+    constructor(_length, _width, _x, _z){
         this.group = new THREE.Group()
 
         const ceilling = new THREE.Mesh(
@@ -50,8 +50,8 @@ export default class Ceillings {
             )
         )
 
-        ceilling.position.set(0, 2, 0)
-        ceilling.rotation.set( Math.PI * 0.5 , 0, Math.PI * 0.5)
+        ceilling.position.set(_x, 2, _z)
+        ceilling.rotation.set(Math.PI * 0.5, 0, Math.PI * 0.5)
 
         this.group.add(ceilling)
     }
