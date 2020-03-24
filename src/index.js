@@ -3,6 +3,10 @@
  */
 import './style/main.styl'
 import * as THREE from 'three'
+import Walls from './javascript/Walls.js'
+import Ceilings from './javascript/ Ceilings.js'
+import Floors from './javascript/Floors.js'
+// import { TweenLite } from 'gsap/all'
 
 /**
  * Sizes
