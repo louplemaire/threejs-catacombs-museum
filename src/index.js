@@ -55,6 +55,17 @@ const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 
 camera.position.z = 8
 scene.add(camera)
 
+/**
+ * Lights
+ */
+
+const ambientLight = new THREE.AmbientLight(0x65aaac, 0.2)
+scene.add(ambientLight)
+
+const directionalLight = new THREE.DirectionalLight(0x00fffc, 0.3)
+directionalLight.position.set(0,1,1)
+scene.add(directionalLight)
+
 
 /**
  * Renderer

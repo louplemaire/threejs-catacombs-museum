@@ -37,14 +37,42 @@ export default class Walls {
         firstSegment.add(box3)
 
         const secondSegment = new THREE.Group()
-        secondSegment.position.set(8,0,-11)
+        secondSegment.position.set(13,0,-11)
         this.group.add(secondSegment)
 
         const box4 = new THREE.Mesh(
             new THREE.BoxGeometry(8,2,1),
             material1
         )
-        box4.position.set(4,0,-4)
+        box4.position.set(0,0,-4)
         secondSegment.add(box4)
+
+        const box5 = new THREE.Mesh(
+            new THREE.BoxGeometry(8,2,1),
+            material1
+        )
+        box5.position.set(0,0,4)
+        secondSegment.add(box5)
+
+        const box6 = new THREE.Mesh(
+            new THREE.BoxGeometry(12,2,3),
+            material1
+        )
+        box6.position.set(10,0,2.5)
+        secondSegment.add(box6)
+
+        const box7 = new THREE.Mesh(
+            new THREE.BoxGeometry(10,2,6),
+            material1
+        )
+        box7.position.set(9,0,-4)
+        secondSegment.add(box7)
+
+        const box8 = new THREE.Mesh(
+            new THREE.BoxGeometry(2,2,8),
+            material1
+        )
+        box8.position.set(17,0,-2.5)
+        secondSegment.add(box8)
     }
 }
