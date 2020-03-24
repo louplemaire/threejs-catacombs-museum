@@ -33,18 +33,16 @@ window.addEventListener('mousemove', (_event) => {
  */
 const scene = new THREE.Scene()
 
+/**
+ * Objects
+ */
 //Add floor
 const floor = new Floors(10)
 scene.add(floor.group)
 
 //Add ceiling
-const ceiling = new Ceillings()
+const ceiling = new Ceilings(10)
 scene.add(ceiling.group)
-
-/**
- * Objects
- */
-
 
 /**
  * Camera
@@ -68,7 +66,6 @@ document.body.appendChild(renderer.domElement)
 const cameraControls = new OrbitControls(camera, renderer.domElement)
 cameraControls.zoomSpeed = 0.3
 cameraControls.enableDamping = true
-
 
 /**
  * Resize
