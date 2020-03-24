@@ -41,6 +41,10 @@ scene.add(floor.group)
 const ceiling = new Ceillings()
 scene.add(ceiling.group)
 
+//Add walls
+const walls = new Walls()
+scene.add(walls.group)
+
 /**
  * Objects
  */
@@ -49,7 +53,7 @@ scene.add(ceiling.group)
 /**
  * Camera
  */
-const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 20)
+const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 30)
 camera.position.z = 8
 scene.add(camera)
 
@@ -109,3 +113,39 @@ const loop = () => {
 }
 
 loop()
+
+/**
+ * Movement
+ */
+
+const movement = () => 
+{
+    window.addEventListener('keydown', (e) =>
+    {
+        if (e.keyCode == 90) // w
+        {
+            camera.position.z -= 0.2
+        }
+        if (e.keyCode == 81) // q
+        {
+            camera.position.x -= 0.2
+        }
+        if (e.keyCode == 83) // s
+        {
+            camera.position.z += 0.2
+        }
+        if (e.keyCode == 68) // d
+        {
+            camera.position.x += 0.2
+        }
+        if (e.keyCode == 65) // a
+        {
+            camera.rotation.y += Math.PI*0.05
+        }
+        if (e.keyCode == 69) // e
+        {
+            camera.rotation.y -= Math.PI*0.05
+        }
+    })
+}
+movement()
