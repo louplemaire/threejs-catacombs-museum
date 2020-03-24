@@ -33,25 +33,42 @@ window.addEventListener('mousemove', (_event) => {
  */
 const scene = new THREE.Scene()
 
+/**
+ * Objects
+ */
 //Add floor
 const floor = new Floors(10)
 scene.add(floor.group)
 
 //Add ceiling
+<<<<<<< HEAD
 const ceiling = new Ceilings()
+=======
+const ceiling = new Ceilings(10)
+>>>>>>> 910cc1e6ce5639b6d849eea4750db0d7eaec7952
 scene.add(ceiling.group)
 
-/**
- * Objects
- */
-
+//Add walls
+const walls = new Walls()
+scene.add(walls.group)
 
 /**
  * Camera
  */
-const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 20)
+const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 30)
 camera.position.z = 8
 scene.add(camera)
+
+/**
+ * Lights
+ */
+
+const ambientLight = new THREE.AmbientLight(0x65aaac, 0.2)
+scene.add(ambientLight)
+
+const directionalLight = new THREE.DirectionalLight(0x00fffc, 0.3)
+directionalLight.position.set(0,1,1)
+scene.add(directionalLight)
 
 
 /**
@@ -68,7 +85,6 @@ document.body.appendChild(renderer.domElement)
 const cameraControls = new OrbitControls(camera, renderer.domElement)
 cameraControls.zoomSpeed = 0.3
 cameraControls.enableDamping = true
-
 
 /**
  * Resize
@@ -109,3 +125,39 @@ const loop = () => {
 }
 
 loop()
+
+/**
+ * Movement
+ */
+
+const movement = () => 
+{
+    window.addEventListener('keydown', (e) =>
+    {
+        if (e.keyCode == 90) // w
+        {
+            camera.position.z -= 0.2
+        }
+        if (e.keyCode == 81) // q
+        {
+            camera.position.x -= 0.2
+        }
+        if (e.keyCode == 83) // s
+        {
+            camera.position.z += 0.2
+        }
+        if (e.keyCode == 68) // d
+        {
+            camera.position.x += 0.2
+        }
+        if (e.keyCode == 65) // a
+        {
+            camera.rotation.y += Math.PI*0.05
+        }
+        if (e.keyCode == 69) // e
+        {
+            camera.rotation.y -= Math.PI*0.05
+        }
+    })
+}
+movement()
