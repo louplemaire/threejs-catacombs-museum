@@ -17,11 +17,11 @@ import ceillingAlphaSource from '../textures/ceiling/alphaMap.jpg'
  */
 
 export default class Ceillings {
-    constructor(ceillingLength){
+    constructor(_length, _width){
         this.group = new THREE.Group()
 
         const ceilling = new THREE.Mesh(
-            new THREE.PlaneGeometry(ceillingLength, 2, 2),
+            new THREE.PlaneGeometry(_length, _width, 40, 40),
             new THREE.MeshNormalMaterial()
         )
 
