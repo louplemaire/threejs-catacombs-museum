@@ -1,3 +1,15 @@
+/* 
+ * Textures
+*/
+
+import wallColorSource from '../textures/walls/color.jpg'
+import wallAmbientOcclusionSource from '../textures/walls/ambientOcclusion.jpg'
+import wallDisplacementSource from '../textures/walls/displacement.jpg'
+import wallNormalSource from '../textures/walls/normal.jpg'
+import wallRoughnessSource from '../textures/walls/roughness.jpg'
+import wallAlphaSource from '../textures/walls/alphaMap.jpg'
+
+
 /**
  * Walls
  */

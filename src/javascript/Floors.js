@@ -1,5 +1,16 @@
 import * as THREE from 'three'
 
+/* 
+ * Textures
+*/
+
+import floorColorSource from '../textures/floor/color.jpg'
+import floorAmbientOcclusionSource from '../textures/floor/ambientOcclusion.jpg'
+import floorDisplacementSource from '../textures/floor/displacement.jpg'
+import floorNormalSource from '../textures/floor/normal.jpg'
+import floorRoughnessSource from '../textures/floor/roughness.jpg'
+import floorAlphaSource from '../textures/floor/alphaMap.jpg'
+
 /**
  * Floors
  */
