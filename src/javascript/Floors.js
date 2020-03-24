@@ -1,13 +1,18 @@
+import * as THREE from 'three'
+
 /**
  * Floors
  */
-import * as THREE from 'three'
-
 export default class Floors {
-    constructor(){
+    constructor(floorLenght){
         this.group = new THREE.Group()
 
-        const floor = new THREE.Mesh()
+        const floor = new THREE.Mesh(
+            new THREE.PlaneGeometry(floorLenght, 2, 40, 40),
+            new THREE.MeshNormalMaterial
+        )
+        
+        floor.rotation.set( -Math.PI * 0.5 , 0, Math.PI * 0.5)
 
         this.group.add(floor)
     }

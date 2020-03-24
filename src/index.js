@@ -6,6 +6,7 @@ import * as THREE from 'three'
 import Walls from './javascript/Walls.js'
 import Ceilings from './javascript/Ceilings.js'
 import Floors from './javascript/Floors.js'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 // import { TweenLite } from 'gsap/all'
 
 /**
@@ -32,6 +33,14 @@ window.addEventListener('mousemove', (_event) => {
  */
 const scene = new THREE.Scene()
 
+//Add floor
+const floor = new Floors(10)
+scene.add(floor.group)
+
+//Add ceiling
+const ceiling = new Ceillings()
+scene.add(ceiling.group)
+
 /**
  * Objects
  */
@@ -44,6 +53,7 @@ const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 
 camera.position.z = 8
 scene.add(camera)
 
+
 /**
  * Renderer
  */
@@ -51,6 +61,14 @@ const renderer = new THREE.WebGLRenderer()
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(window.devicePixelRatio)
 document.body.appendChild(renderer.domElement)
+
+/* 
+    Orbits Controls
+*/
+const cameraControls = new OrbitControls(camera, renderer.domElement)
+cameraControls.zoomSpeed = 0.3
+cameraControls.enableDamping = true
+
 
 /**
  * Resize
@@ -72,16 +90,19 @@ const loop = () => {
     window.requestAnimationFrame(loop)
 
     // Camera
-    camera.position.x = cursor.x * 5
-    camera.position.y = - cursor.y * 5
+    // camera.position.x = cursor.x * 5
+    // camera.position.y = - cursor.y * 5
 
-    const angle = cursor.x * Math.PI * 2
+    // const angle = cursor.x * Math.PI * 2
 
-    camera.position.x = Math.cos(angle) * 3
-    camera.position.z = Math.sin(angle) * 3
-    camera.position.y = cursor.y * 5
+    // camera.position.x = Math.cos(angle) * 3
+    // camera.position.z = Math.sin(angle) * 3
+    // camera.position.y = cursor.y * 5
 
-    camera.lookAt(scene.position)
+    // camera.lookAt(scene.position)
+
+    cameraControls.update()
+
 
     // Render
     renderer.render(scene, camera)
