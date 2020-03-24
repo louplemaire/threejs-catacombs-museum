@@ -9,6 +9,19 @@ import wallNormalSource from '../textures/walls/normal.jpg'
 import wallRoughnessSource from '../textures/walls/roughness.jpg'
 import wallAlphaSource from '../textures/walls/alphaMap.jpg'
 
+const textureLoader = new THREE.TextureLoader()
+
+const wallColorTexture = textureLoader.load(wallColorSource)
+wallColorTexture.repeat.x = 4
+wallColorTexture.repeat.y = 1
+wallColorTexture.wrapS = THREE.RepeatWrapping
+wallColorTexture.wrapT = THREE.RepeatWrapping
+
+const wallAmbientOcclusionTexture = textureLoader.load(wallAmbientOcclusionSource)
+const wallDisplacementTexture = textureLoader.load(wallDisplacementSource)
+const wallNormalTexture = textureLoader.load(wallNormalSource)
+const wallRoughnessTexture = textureLoader.load(wallRoughnessSource)
+const wallAlphaTexture = textureLoader.load(wallAlphaSource)
 
 /**
  * Walls
@@ -21,7 +34,17 @@ export default class Walls {
 
         // Material
 
-        const material1 = new THREE.MeshStandardMaterial()
+        const material1 = new THREE.MeshStandardMaterial(
+            {
+                map: wallColorTexture,
+                aoMap: wallAmbientOcclusionTexture,
+                displacementMap: wallDisplacementTexture,
+                displacementScale: 0,
+                roughnessMap: wallRoughnessTexture,
+                alphaMap: wallAlphaTexture,
+                normalMap: wallNormalTexture
+            }
+        )
 
         const walls = new THREE.Mesh(
             new THREE.BoxGeometry(width,height,depth),

@@ -37,7 +37,7 @@ const scene = new THREE.Scene()
  * Objects
  */
 //Add floor
-const floor = new Floors(10)
+const floor = new Floors(10, 2)
 scene.add(floor.group)
 
 //Add ceiling
@@ -92,12 +92,12 @@ scene.add(camera)
  * Lights
  */
 
-const ambientLight = new THREE.AmbientLight(0x65aaac, 0.2)
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
 scene.add(ambientLight)
 
-const directionalLight = new THREE.DirectionalLight(0x00fffc, 0.3)
-directionalLight.position.set(0,1,1)
-scene.add(directionalLight)
+// const directionalLight = new THREE.DirectionalLight(0x00fffc, 0.3)
+// directionalLight.position.set(0,1,1)
+// scene.add(directionalLight)
 
 
 /**
