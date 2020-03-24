@@ -15,7 +15,7 @@ const wallColorTexture = textureLoader.load(wallColorSource)
 wallColorTexture.repeat.x = 4
 wallColorTexture.repeat.y = 1
 wallColorTexture.wrapS = THREE.RepeatWrapping
-wallColorTexture.wrapT = THREE.RepeatWrapping
+// wallColorTexture.wrapT = THREE.RepeatWrapping
 
 const wallAmbientOcclusionTexture = textureLoader.load(wallAmbientOcclusionSource)
 const wallDisplacementTexture = textureLoader.load(wallDisplacementSource)
@@ -39,7 +39,7 @@ export default class Walls {
                 map: wallColorTexture,
                 aoMap: wallAmbientOcclusionTexture,
                 displacementMap: wallDisplacementTexture,
-                displacementScale: 0,
+                displacementScale: 0.2,
                 roughnessMap: wallRoughnessTexture,
                 alphaMap: wallAlphaTexture,
                 normalMap: wallNormalTexture
@@ -47,7 +47,7 @@ export default class Walls {
         )
 
         const wall = new THREE.Mesh(
-            new THREE.BoxGeometry(_width,_height,_depth),
+            new THREE.BoxGeometry(_width,_height,_depth, 10, 10, 10),
             material1
         )
         wall.position.set(_x,1,_z)

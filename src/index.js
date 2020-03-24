@@ -37,7 +37,7 @@ const scene = new THREE.Scene()
  * Objects
  */
 //Add floor
-const floor = new Floors(10, 2)
+const floor = new Floors(10, 2, 0)
 scene.add(floor.group)
 
 //Add ceiling
