@@ -29,7 +29,7 @@ const wallAlphaTexture = textureLoader.load(wallAlphaSource)
 import * as THREE from 'three'
 
 export default class Walls {
-    constructor(width,height,depth,x,y,z){
+    constructor(_width,_height,_depth,_x,_z){
         this.group = new THREE.Group()
 
         // Material
@@ -46,12 +46,12 @@ export default class Walls {
             }
         )
 
-        const walls = new THREE.Mesh(
-            new THREE.BoxGeometry(width,height,depth),
+        const wall = new THREE.Mesh(
+            new THREE.BoxGeometry(_width,_height,_depth),
             material1
         )
-        walls.position.set(x,y,z)
-        this.group.add(walls)
+        wall.position.set(_x,1,_z)
+        this.group.add(wall)
 
         // const thirdSegment = new THREE.Group()
         // thirdSegment.position.set(28, 1, -25)
