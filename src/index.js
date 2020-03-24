@@ -35,11 +35,7 @@ const scene = new THREE.Scene()
 /**
  * Objects
  */
-const dummy = new THREE.Mesh(
-    new THREE.SphereGeometry(1),
-    new THREE.MeshNormalMaterial()
-)
-scene.add(dummy)
+
 
 /**
  * Camera
