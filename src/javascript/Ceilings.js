@@ -12,7 +12,8 @@ export default class Ceillings {
             new THREE.MeshNormalMaterial()
         )
 
-        ceilling.rotation.x = Math.PI * 0.5
+        ceilling.position.y = 2
+        ceilling.rotation.set( Math.PI * 0.5 , 0, Math.PI * 0.5)
 
         this.group.add(ceilling)
     }
