@@ -11,7 +11,8 @@ export default class Floors {
             new THREE.PlaneGeometry(floorLenght, 2, 40, 40),
             new THREE.MeshNormalMaterial
         )
-        
+
+        floor.position.set(0, -1, 0)
         floor.rotation.set( -Math.PI * 0.5 , 0, Math.PI * 0.5)
 
         this.group.add(floor)
