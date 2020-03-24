@@ -41,7 +41,7 @@ const floor = new Floors(10)
 scene.add(floor.group)
 
 //Add ceiling
-const ceiling = new Ceilings(10)
+const ceiling = new Ceilings()
 scene.add(ceiling.group)
 
 //Add walls
