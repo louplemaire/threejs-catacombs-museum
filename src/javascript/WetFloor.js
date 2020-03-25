@@ -14,7 +14,7 @@ import WetFloorAlphaSource from '../textures/wet_floor/alphaMap.jpg'
 const textureLoader = new THREE.TextureLoader()
 
 const WetFloorColorTexture = textureLoader.load(WetFloorColorSource)
-WetFloorColorTexture.repeat.x = 4
+WetFloorColorTexture.repeat.x = 2
 WetFloorColorTexture.repeat.y = 1
 WetFloorColorTexture.wrapS = THREE.RepeatWrapping
 WetFloorColorTexture.wrapT = THREE.RepeatWrapping
@@ -33,7 +33,7 @@ export default class WetFloors {
         this.group = new THREE.Group()
 
         const WetFloor = new THREE.Mesh(
-            new THREE.PlaneGeometry(_lenght, _width, 40, 40),
+            new THREE.PlaneGeometry(_lenght, _width, 20, 20),
             new THREE.MeshStandardMaterial(
                 {
                     map: WetFloorColorTexture,

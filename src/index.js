@@ -7,6 +7,7 @@ import Walls from './javascript/Walls.js'
 import Ceilings from './javascript/Ceilings.js'
 import Floors from './javascript/Floors.js'
 import WetFloors from './javascript/WetFloor.js'
+import FlashLight from './javascript/FlashLight.js'
 import Planes from './javascript/Planes.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import CircleRoom from './javascript/CircleRoom'
@@ -144,9 +145,12 @@ scene.add(camera)
  * Lights
  */
 
-const ambientLight = new THREE.AmbientLight(0xffffff, .7)
+const ambientLight = new THREE.AmbientLight(0xffffff, .1)
 scene.add(ambientLight)
 
+
+const flashLight = new FlashLight(0, 0, 0)
+scene.add(flashLight.group)
 // const directionalLight = new THREE.DirectionalLight(0x00fffc, 0.3)
 // directionalLight.position.set(0,1,1)
 // scene.add(directionalLight)
@@ -197,6 +201,9 @@ const loop = () => {
     // camera.position.y = cursor.y * 5
 
     // camera.lookAt(scene.position)
+    
+    //Update flashLight coord
+    flashLight.group.position.set(camera.position.x, camera.position.y, camera.position.z)
 
     cameraControls.update()
 
