@@ -3,12 +3,17 @@
  */
 import './style/main.styl'
 import * as THREE from 'three'
+import Skull from './javascript/Skull.js'
+import Bones from './javascript/Bones.js'
+import Torch from './javascript/Torch.js'
+import Pillier from './javascript/Pillier.js'
+// import Torch2 from './javascript/Torch2.js'
 import Walls from './javascript/Walls.js'
 import Ceilings from './javascript/Ceilings.js'
 import Floors from './javascript/Floors.js'
 import WetFloors from './javascript/WetFloor.js'
 import FlashLight from './javascript/FlashLight.js'
-import Planes from './javascript/Planes.js'
+// import Planes from './javascript/Planes.js'
 import Graffiti from './javascript/Graffiti.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import CircleRoom from './javascript/CircleRoom'
@@ -70,10 +75,25 @@ const scene = new THREE.Scene()
  * Objects
  */
 
+const skull = new Skull(0, 0, 0)
+scene.add(skull.group)
+
+const bones = new Bones()
+scene.add(bones.group)
+
+const torch = new Torch()
+scene.add(torch.group)
+
+// const torch2 = new Torch2()
+// scene.add(torch2.group)
+
+const pillier = new Pillier()
+scene.add(pillier.group)
+
 //Add walls
 
-const graffWall = new Graffiti()
-scene.add(graffWall.fourGroup)
+// const graffWall = new Graffiti()
+// scene.add(graffWall.fourGroup)
 
 //First segment
 const firstSegment = new THREE.Group()
@@ -183,8 +203,8 @@ const ceiling4 = new Ceilings(18,14,3,3)
 fourthSegment.add(ceiling4.group)
 
 //Add plane
-const plane = new Planes()
-scene.add(plane.group)
+// const plane = new Planes()
+// scene.add(plane.group)
 
 
 /**
@@ -198,7 +218,7 @@ scene.add(camera)
  * Lights
  */
 
-const ambientLight = new THREE.AmbientLight(0xffffff, .1)
+const ambientLight = new THREE.AmbientLight(0xffffff, 1)
 scene.add(ambientLight)
 
 
