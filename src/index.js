@@ -314,11 +314,28 @@ const movement = () =>
 }
 movement()
 
+/**
+ * Buttons
+ */
+// Start buton
 const startButton = document.querySelector(".js-start-button")
 const landingPage = document.querySelector(".landing")
 
-startButton.addEventListener('click', () =>
-{
+startButton.addEventListener('click', () => {
     landingPage.style.opacity = 0
-    landingPage.classList.add('isVisible')
+    landingPage.classList.add('is-visible')
+})
+
+// Open cultural popup
+
+// Close cultural popup
+const closeButtons = document.querySelectorAll('.js-close-button')
+const popups = document.querySelectorAll('.js-popup-information')
+
+closeButtons.forEach(_closeButton => {
+    _closeButton.addEventListener('click', () => {
+        popups.forEach(_popup => {
+            _popup.classList.add('is-visible')
+        })
+    })
 })
