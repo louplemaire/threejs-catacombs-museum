@@ -48,8 +48,8 @@ const ceiling = new Ceilings(12, 2, 0, -6)
 scene.add(ceiling.group)
 
 //Add plane
-// const plane = new Planes()
-// scene.add(plane.group)
+const plane = new Planes()
+scene.add(plane.group)
 
 //Add walls
 
