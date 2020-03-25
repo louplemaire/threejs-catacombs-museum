@@ -34,6 +34,13 @@ $smokeImage.src = smokeImage
 smokeImageContainer.appendChild($smokeImage)
 $smokeImage.setAttribute('alt', 'Smoke image')
 
+// Parchment
+import parchmentImage from './images/parchment.png'
+
+const $parchmentImage = new Image()
+$parchmentImage.src = parchmentImage
+$parchmentImage.setAttribute('alt', 'Parchment image')
+
 /**
  * Sizes
  */
