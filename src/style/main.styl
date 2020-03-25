@@ -1,7 +1,27 @@
+/**
+ * Config
+ */
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Playfair+Display&display=swap')
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700&display=swa')
+
+$font-title = 'Playfair Display', cursive
+$font-text = 'Source Sans Pro', sans-serif
+$font-size-title = 10rem
+$font-size-subtitle = 1.5rem
+$font-size-text = 1rem
+
+// Colors
+$primary-color = #B9AE92
+
+// Reset
 *
     margin 0
     padding 0
 
+/**
+ * Body
+ */
 html
 body
     position fixed
@@ -11,49 +31,82 @@ body
     height 100%
     overflow hidden
 
+/**
+ * Landing
+ */
 .landing
-    width 100%
-    height 100%
-    background-color #c4c4c4
-    z-index: 2
-
-    .front
-        width 60%
-        height 100%
-        margin 0 auto
-        text-align: center
+    position relative
+    width 100vw
+    height 100vh
+    background-color #000000
+    .text
+        position absolute
+        top 50%
+        left 50%
+        transform translate(-50%, -50%)
+        z-index 10
+        align-items center
         display flex
         flex-direction column
-        justify-content center
-        align-items space-between
-        opacity 1
-
         h1
-            font-size: 60px
-
+            font-family $font-title
+            font-size $font-size-title
+            letter-spacing 23px
+            text-transform uppercase
+            color $primary-color
         a
             text-decoration none
-            font-size 30px
+            font-family $font-title
+            $font-size-subtitle
+            letter-spacing 10px
+            text-transform uppercase
+            color $primary-color
+            will-change opacity
+            &:hover
+                opacity 0.6
+                transition 0.3s
+                transition-timing-function ease-in-out
+    .sewer-image
+        position absolute
+        top 50%
+        left 50%
+        transform translate(-50%, -50%)
+        width 41vw
+        img
+            width 100%
+            height auto
+    .smoke-image
+        position absolute
+        top 0
+        left 0
+        right 0
+        z-index 20
+        width 100vw
+        img
+            width 100%
+            height auto
 
+/**
+ * Cultural content
+ */
 .popUpInformation
-    position: absolute
+    position absolute
     top 20%
     left 35%
     width 30%
     height auto
-    border-radius 5%
+    border-radius 5px
     background-color #fff
-    padding 2%
-    
+    padding 20px
     h2
+        margin-bottom 10px
         text-align center
-        font-size 40px
-        margin-bottom 5%
-
+        font-family $font-title
+        font-size $font-size-subtitle
     p
         text-align center
-        font-size: 25px
-
+        font-family $font-text
+        font-size $font-size-text
 
 .isVisible
     display none
