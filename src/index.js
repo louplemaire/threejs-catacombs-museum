@@ -72,9 +72,6 @@ const scene = new THREE.Scene()
 
 //Add walls
 
-const graffWall = new Graffiti()
-scene.add(graffWall.fourGroup)
-
 //First segment
 const firstSegment = new THREE.Group()
 firstSegment.position.set(0,0,-6)
@@ -154,6 +151,20 @@ fourthSegment.add(wall19.group)
 
 const wall20 = new Walls(1,2,2,9.5,9)
 fourthSegment.add(wall20.group)
+
+//Add Graffiti
+
+const graffWall1 = new Graffiti(1.5,-5.95,0)
+firstSegment.add(graffWall1.fourGroup)
+
+const graffWall2 = new Graffiti(8,0.95,Math.PI)
+secondSegment.add(graffWall2.thirdGroup)
+
+const graffWall3 = new Graffiti(12.95,0,-Math.PI*0.5)
+thirdSegment.add(graffWall3.secondGroup)
+
+const graffWall4 = new Graffiti(2,9.95,Math.PI)
+fourthSegment.add(graffWall4.firstGroup)
 
 //Add floor
 const wetFloor1 = new WetFloors(12, 12,3,0)

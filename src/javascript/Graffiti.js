@@ -31,7 +31,7 @@ const wallAlphaTexture = textureLoader.load(wallAlphaSource)
 
 export default class FirstGraff
 {
-    constructor()
+    constructor(_x,_z,_rotationY)
     {
         this.firstGroup = new THREE.Group()
 
@@ -41,7 +41,7 @@ export default class FirstGraff
                 map: firstGraffColor,
                 aoMap: wallAmbientOcclusionTexture,
                 displacementMap: wallDisplacementTexture,
-                displacementScale: 0.2,
+                displacementScale: 0.1,
                 roughnessMap: wallRoughnessTexture,
                 alphaMap: wallAlphaTexture,
                 normalMap: wallNormalTexture
@@ -53,7 +53,8 @@ export default class FirstGraff
             new THREE.PlaneGeometry(5, 2, 40, 40),
             firstGraffMaterial    
         )
-
+        firstWallGraff.position.set(_x,1,_z)
+        firstWallGraff.rotation.y = _rotationY
         this.firstGroup.add(firstWallGraff)
 
         //Second
@@ -65,7 +66,7 @@ export default class FirstGraff
                 map: secondGraffColor,
                 aoMap: wallAmbientOcclusionTexture,
                 displacementMap: wallDisplacementTexture,
-                displacementScale: 0.2,
+                displacementScale: 0.1,
                 roughnessMap: wallRoughnessTexture,
                 alphaMap: wallAlphaTexture,
                 normalMap: wallNormalTexture
@@ -77,7 +78,8 @@ export default class FirstGraff
             new THREE.PlaneGeometry(5, 2, 40, 40),
             secondGraffMaterial    
         )
-
+        secondWallGraff.position.set(_x,1,_z)
+        secondWallGraff.rotation.y = _rotationY
         this.secondGroup.add(secondWallGraff)
 
 
@@ -90,7 +92,7 @@ export default class FirstGraff
                 map: thirdGraffColor,
                 aoMap: wallAmbientOcclusionTexture,
                 displacementMap: wallDisplacementTexture,
-                displacementScale: 0.2,
+                displacementScale: 0.1,
                 roughnessMap: wallRoughnessTexture,
                 alphaMap: wallAlphaTexture,
                 normalMap: wallNormalTexture
@@ -102,7 +104,8 @@ export default class FirstGraff
             new THREE.PlaneGeometry(5, 2, 40, 40),
             thirdGraffMaterial    
         )
-
+        thirdWallGraff.position.set(_x,1,_z)
+        thirdWallGraff.rotation.y = _rotationY
         this.thirdGroup.add(thirdWallGraff)
 
         //Four
@@ -114,7 +117,7 @@ export default class FirstGraff
                 map: fourGraffColor,
                 aoMap: wallAmbientOcclusionTexture,
                 displacementMap: wallDisplacementTexture,
-                displacementScale: 0.2,
+                displacementScale: 0.1,
                 roughnessMap: wallRoughnessTexture,
                 alphaMap: wallAlphaTexture,
                 normalMap: wallNormalTexture
@@ -126,7 +129,8 @@ export default class FirstGraff
             new THREE.PlaneGeometry(5, 2, 40, 40),
             fourGraffMaterial    
         )
-
+        fourWallGraff.position.set(_x,1,_z)
+        fourWallGraff.rotation.y = _rotationY
         this.fourGroup.add(fourWallGraff)
     }
 }

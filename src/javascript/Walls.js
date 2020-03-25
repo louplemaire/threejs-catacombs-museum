@@ -40,7 +40,7 @@ export default class Walls {
                 map: wallColorTexture,
                 aoMap: wallAmbientOcclusionTexture,
                 displacementMap: wallDisplacementTexture,
-                displacementScale: 0.2,
+                displacementScale: 0.1,
                 roughnessMap: wallRoughnessTexture,
                 alphaMap: wallAlphaTexture,
                 normalMap: wallNormalTexture
