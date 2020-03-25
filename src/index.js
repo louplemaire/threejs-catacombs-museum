@@ -6,6 +6,7 @@ import * as THREE from 'three'
 import Walls from './javascript/Walls.js'
 import Ceilings from './javascript/Ceilings.js'
 import Floors from './javascript/Floors.js'
+import Planes from './javascript/Planes.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import CircleRoom from './javascript/CircleRoom'
 // import { TweenLite } from 'gsap/all'
@@ -44,6 +45,10 @@ scene.add(floor.group)
 //Add ceiling
 const ceiling = new Ceilings(10, 2, 0, 0,)
 scene.add(ceiling.group)
+
+//Add plane
+// const plane = new Planes()
+// scene.add(plane.group)
 
 //Add walls
 
@@ -236,3 +241,13 @@ const movement = () =>
     })
 }
 movement()
+
+const link = document.querySelector(".linking")
+const landingPage = document.querySelector(".landing")
+console.log(link)
+
+link.addEventListener('click', () =>
+{
+    landingPage.style.opacity = 0
+    landingPage.classList.add('isVisible')
+})
