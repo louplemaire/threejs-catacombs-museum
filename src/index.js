@@ -299,11 +299,10 @@ const movement = () =>
 }
 movement()
 
-const link = document.querySelector(".linking")
+const startButton = document.querySelector(".js-start-button")
 const landingPage = document.querySelector(".landing")
-console.log(link)
 
-link.addEventListener('click', () =>
+startButton.addEventListener('click', () =>
 {
     landingPage.style.opacity = 0
     landingPage.classList.add('isVisible')
