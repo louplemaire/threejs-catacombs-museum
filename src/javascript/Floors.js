@@ -39,7 +39,7 @@ export default class Floors {
                     map: floorColorTexture,
                     aoMap: floorAmbientOcclusionTexture,
                     displacementMap: floorDisplacementTexture,
-                    displacementScale: 0,
+                    displacementScale: 2,
                     roughnessMap: floorRoughnessTexture,
                     alphaMap: floorAlphaTexture,
                     normalMap: floorNormalTexture
@@ -47,8 +47,11 @@ export default class Floors {
             )
         )
 
-        floor.rotation.set( -Math.PI * 0.5 , 0, Math.PI * 0.5)
+        //Temporary
+        floor.position.z = -6
 
+        floor.rotation.set( -Math.PI * 0.5 , 0, Math.PI * 0.5)
+        this.group.position.set(0, -1.4, 0)
         this.group.add(floor)
     }
 }

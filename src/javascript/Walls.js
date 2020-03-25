@@ -12,8 +12,8 @@ import wallAlphaSource from '../textures/walls/alphaMap.jpg'
 const textureLoader = new THREE.TextureLoader()
 
 const wallColorTexture = textureLoader.load(wallColorSource)
-wallColorTexture.repeat.x = 4
-wallColorTexture.repeat.y = 1
+wallColorTexture.repeat.x = 2
+// wallColorTexture.repeat.y = 2
 wallColorTexture.wrapS = THREE.RepeatWrapping
 // wallColorTexture.wrapT = THREE.RepeatWrapping
 
@@ -34,20 +34,21 @@ export default class Walls {
 
         // Material
 
-        const material1 = new THREE.MeshStandardMaterial(
+        const material1 = new THREE.MeshStandardMaterial
+        (
             {
                 map: wallColorTexture,
                 aoMap: wallAmbientOcclusionTexture,
-                // displacementMap: wallDisplacementTexture,
-                // displacementScale: 0.2,
-                // roughnessMap: wallRoughnessTexture,
-                // alphaMap: wallAlphaTexture,
+                displacementMap: wallDisplacementTexture,
+                displacementScale: 0.2,
+                roughnessMap: wallRoughnessTexture,
+                alphaMap: wallAlphaTexture,
                 normalMap: wallNormalTexture
             }
         )
 
         const wall = new THREE.Mesh(
-            new THREE.BoxGeometry(_width,_height,_depth, 5, 5, 5),
+            new THREE.BoxGeometry(_width,_height,_depth, 40 , 40 , 40 ),
             material1
         )
         wall.position.set(_x,1,_z)

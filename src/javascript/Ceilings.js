@@ -41,7 +41,7 @@ export default class Ceillings {
                     map: ceillingColorTexture,
                     aoMap: ceillingAmbientOcclusionTexture,
                     displacementMap: ceillingDisplacementTexture,
-                    displacementScale: 0,
+                    displacementScale: .1,
                     roughnessMap: ceillingRoughnessTexture,
                     alphaMap: ceillingAlphaTexture,
                     normalMap: ceillingNormalTexture,

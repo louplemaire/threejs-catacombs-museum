@@ -38,11 +38,11 @@ const scene = new THREE.Scene()
  * Objects
  */
 //Add floor
-const floor = new Floors(10, 2, 0)
+const floor = new Floors(12, 2, 0)
 scene.add(floor.group)
 
 //Add ceiling
-const ceiling = new Ceilings(10, 2, 0, 0,)
+const ceiling = new Ceilings(12, 2, 0, -6)
 scene.add(ceiling.group)
 
 //Add walls
@@ -132,14 +132,14 @@ fourthSegment.add(wall20.group)
  * Camera
  */
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 30)
-camera.position.set(0,1,8)
+camera.position.set(0,2,5)
 scene.add(camera)
 
 /**
  * Lights
  */
 
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.5)
+const ambientLight = new THREE.AmbientLight(0xffffff, .5)
 scene.add(ambientLight)
 
 // const directionalLight = new THREE.DirectionalLight(0x00fffc, 0.3)
