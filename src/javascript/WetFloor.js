@@ -14,8 +14,8 @@ import WetFloorAlphaSource from '../textures/wet_floor/alphaMap.jpg'
 const textureLoader = new THREE.TextureLoader()
 
 const WetFloorColorTexture = textureLoader.load(WetFloorColorSource)
-WetFloorColorTexture.repeat.x = 2
-WetFloorColorTexture.repeat.y = 1
+WetFloorColorTexture.repeat.x = 10
+WetFloorColorTexture.repeat.y = 10
 WetFloorColorTexture.wrapS = THREE.RepeatWrapping
 WetFloorColorTexture.wrapT = THREE.RepeatWrapping
 
@@ -29,10 +29,10 @@ const WetFloorAlphaTexture = textureLoader.load(WetFloorAlphaSource)
  * wetFloors
  */
 export default class WetFloors {
-    constructor(_lenght, _width){
+    constructor(_lenght, _width, _x, _z){
         this.group = new THREE.Group()
 
-        const WetFloor = new THREE.Mesh(
+        const wetFloor = new THREE.Mesh(
             new THREE.PlaneGeometry(_lenght, _width, 20, 20),
             new THREE.MeshStandardMaterial(
                 {
@@ -48,10 +48,10 @@ export default class WetFloors {
         )
 
         //Temporary
-        WetFloor.position.z = -6
+        wetFloor.position.z = -6
 
-        WetFloor.rotation.set( -Math.PI * 0.5 , 0, Math.PI * 0.5)
-        this.group.position.set(0, - .1, 0)
-        this.group.add(WetFloor)
+        wetFloor.rotation.set( -Math.PI * 0.5 , 0, Math.PI * 0.5)
+        wetFloor.position.set(_x, - .1, _z)
+        this.group.add(wetFloor)
     }
 }

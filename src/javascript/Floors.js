@@ -29,7 +29,7 @@ const floorAlphaTexture = textureLoader.load(floorAlphaSource)
  * Floors
  */
 export default class Floors {
-    constructor(_lenght, _width){
+    constructor(_lenght, _width, _x, _z){
         this.group = new THREE.Group()
 
         const floor = new THREE.Mesh(
@@ -51,7 +51,7 @@ export default class Floors {
         floor.position.z = -6
 
         floor.rotation.set( -Math.PI * 0.5 , 0, Math.PI * 0.5)
-        this.group.position.set(0, -1.4, 0)
+        floor.position.set(_x, -1.4, _z)
         this.group.add(floor)
     }
 }
