@@ -36,11 +36,11 @@ export default class Planes {
         this.group = new THREE.Group()
 
         const plane = new THREE.Mesh(
-            new THREE.PlaneGeometry(5,5),
+            new THREE.PlaneGeometry(2,2),
             new THREE.MeshStandardMaterial(brickWallTexture)
         )
-        plane.position.set(50,0,50)
-        plane.rotation.set(Math.PI*0.5,0,0)
+        plane.position.set(28,1,-35.5)
+        plane.rotation.set(0,0,0)
         this.group.add(plane)
     }
 }

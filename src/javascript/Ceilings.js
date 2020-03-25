@@ -4,55 +4,55 @@ import * as THREE from 'three'
  * Textures
 */
 
-import ceillingColorSource from '../textures/ceiling/color.jpg'
-import ceillingAmbientOcclusionSource from '../textures/ceiling/ambientOcclusion.jpg'
-import ceillingDisplacementSource from '../textures/ceiling/displacement.jpg'
-import ceillingNormalSource from '../textures/ceiling/normal.jpg'
-import ceillingRoughnessSource from '../textures/ceiling/roughness.jpg'
-import ceillingAlphaSource from '../textures/ceiling/alphaMap.jpg'
+import ceilingColorSource from '../textures/ceiling/color.jpg'
+import ceilingAmbientOcclusionSource from '../textures/ceiling/ambientOcclusion.jpg'
+import ceilingDisplacementSource from '../textures/ceiling/displacement.jpg'
+import ceilingNormalSource from '../textures/ceiling/normal.jpg'
+import ceilingRoughnessSource from '../textures/ceiling/roughness.jpg'
+import ceilingAlphaSource from '../textures/ceiling/alphaMap.jpg'
 
 const textureLoader = new THREE.TextureLoader()
 
-const ceillingColorTexture = textureLoader.load(ceillingColorSource)
-ceillingColorTexture.repeat.x = 4
-ceillingColorTexture.repeat.y = 1
-ceillingColorTexture.wrapS = THREE.RepeatWrapping
-ceillingColorTexture.wrapT = THREE.RepeatWrapping
+const ceilingColorTexture = textureLoader.load(ceilingColorSource)
+ceilingColorTexture.repeat.x = 25
+ceilingColorTexture.repeat.y = 25
+ceilingColorTexture.wrapS = THREE.RepeatWrapping
+ceilingColorTexture.wrapT = THREE.RepeatWrapping
 
-const ceillingAmbientOcclusionTexture = textureLoader.load(ceillingAmbientOcclusionSource)
-const ceillingDisplacementTexture = textureLoader.load(ceillingDisplacementSource)
-const ceillingNormalTexture = textureLoader.load(ceillingNormalSource)
-const ceillingRoughnessTexture = textureLoader.load(ceillingRoughnessSource)
-const ceillingAlphaTexture = textureLoader.load(ceillingAlphaSource)
+const ceilingAmbientOcclusionTexture = textureLoader.load(ceilingAmbientOcclusionSource)
+const ceilingDisplacementTexture = textureLoader.load(ceilingDisplacementSource)
+const ceilingNormalTexture = textureLoader.load(ceilingNormalSource)
+const ceilingRoughnessTexture = textureLoader.load(ceilingRoughnessSource)
+const ceilingAlphaTexture = textureLoader.load(ceilingAlphaSource)
 
 /**
- * Ceillings
+ * ceilings
  */
 
-export default class Ceillings {
+export default class Ceilings {
     constructor(_length, _width, _x, _z){
         this.group = new THREE.Group()
 
-        const ceilling = new THREE.Mesh(
+        const ceiling = new THREE.Mesh(
             new THREE.PlaneGeometry(_length, _width, 40, 40),
             new THREE.MeshStandardMaterial
             (
                 {
-                    map: ceillingColorTexture,
-                    aoMap: ceillingAmbientOcclusionTexture,
-                    displacementMap: ceillingDisplacementTexture,
+                    map: ceilingColorTexture,
+                    aoMap: ceilingAmbientOcclusionTexture,
+                    displacementMap: ceilingDisplacementTexture,
                     displacementScale: .1,
-                    roughnessMap: ceillingRoughnessTexture,
-                    alphaMap: ceillingAlphaTexture,
-                    normalMap: ceillingNormalTexture,
+                    roughnessMap: ceilingRoughnessTexture,
+                    alphaMap: ceilingAlphaTexture,
+                    normalMap: ceilingNormalTexture,
                     side: THREE.DoubleSide
                 }
             )
         )
 
-        ceilling.position.set(_x, 2, _z)
-        ceilling.rotation.set(Math.PI * 0.5, 0, Math.PI * 0.5)
+        ceiling.position.set(_x, 2, _z)
+        ceiling.rotation.set(Math.PI * 0.5, 0, Math.PI * 0.5)
 
-        this.group.add(ceilling)
+        this.group.add(ceiling)
     }
 }

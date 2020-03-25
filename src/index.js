@@ -15,6 +15,34 @@ import CircleRoom from './javascript/CircleRoom'
 // import { TweenLite } from 'gsap/all'
 
 /**
+ * Images
+ */
+// Sewer
+import sewerImage from './images/sewer.png'
+
+const sewerImageContainer = document.querySelector('.js-sewer-image')
+const $sewerImage = new Image()
+$sewerImage.src = sewerImage
+sewerImageContainer.appendChild($sewerImage)
+$sewerImage.setAttribute('alt', 'Sewer image')
+
+// Smoke
+import smokeImage from './images/smoke.png'
+
+const smokeImageContainer = document.querySelector('.js-smoke-image')
+const $smokeImage = new Image()
+$smokeImage.src = smokeImage
+smokeImageContainer.appendChild($smokeImage)
+$smokeImage.setAttribute('alt', 'Smoke image')
+
+// Parchment
+import parchmentImage from './images/parchment.png'
+
+const $parchmentImage = new Image()
+$parchmentImage.src = parchmentImage
+$parchmentImage.setAttribute('alt', 'Parchment image')
+
+/**
  * Sizes
  */
 const sizes = {}
@@ -41,17 +69,6 @@ const scene = new THREE.Scene()
 /**
  * Objects
  */
-//Add floor
-const wetFloor = new WetFloors(12, 2, 0)
-scene.add(wetFloor.group)
-
-//Add ceiling
-const ceiling = new Ceilings(12, 2, 0, -6)
-scene.add(ceiling.group)
-
-//Add plane
-// const plane = new Planes()
-// scene.add(plane.group)
 
 //Add walls
 
@@ -137,6 +154,38 @@ fourthSegment.add(wall19.group)
 
 const wall20 = new Walls(1,2,2,9.5,9)
 fourthSegment.add(wall20.group)
+
+//Add floor
+const wetFloor1 = new WetFloors(12, 12,3,0)
+firstSegment.add(wetFloor1.group)
+
+const wetFloor2 = new WetFloors(20,24,8,-5)
+secondSegment.add(wetFloor2.group)
+
+const wetFloor3 = new WetFloors(10,18,6,0)
+thirdSegment.add(wetFloor3.group)
+
+const wetFloor4 = new WetFloors(18,14,3,3)
+fourthSegment.add(wetFloor4.group)
+
+//Add ceiling
+
+const ceiling1 = new Ceilings(12, 12,3,0)
+firstSegment.add(ceiling1.group)
+
+const ceiling2 = new Ceilings(20,24,8,-5)
+secondSegment.add(ceiling2.group)
+
+const ceiling3 = new Ceilings(10,18,6,0)
+thirdSegment.add(ceiling3.group)
+
+const ceiling4 = new Ceilings(18,14,3,3)
+fourthSegment.add(ceiling4.group)
+
+//Add plane
+const plane = new Planes()
+scene.add(plane.group)
+
 
 /**
  * Camera
