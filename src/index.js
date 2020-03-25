@@ -75,21 +75,6 @@ const scene = new THREE.Scene()
  * Objects
  */
 
-const skull = new Skull(0, 0, 0)
-scene.add(skull.group)
-
-const bones = new Bones()
-scene.add(bones.group)
-
-const torch = new Torch()
-scene.add(torch.group)
-
-// const torch2 = new Torch2()
-// scene.add(torch2.group)
-
-const pillier = new Pillier()
-scene.add(pillier.group)
-
 //Add walls
 
 // const graffWall = new Graffiti()
@@ -193,6 +178,81 @@ thirdSegment.add(graffWall3.secondGroup)
 
 const graffWall4 = new Graffiti(2,9.95,Math.PI)
 fourthSegment.add(graffWall4.firstGroup)
+
+//Models
+
+//Bones and skull
+const bonesSkullG1 = new THREE.Group()
+bonesSkullG1.position.set(0,0,0.5)
+secondSegment.add(bonesSkullG1)
+
+const bonesG1_1 = new Bones(2,0,2,Math.PI*0.5,0,0,0.0015)
+bonesSkullG1.add(bonesG1_1.group)
+
+const bonesG1_2 = new Bones(2.01,0.02,2.1,0,Math.PI*0.2,Math.PI*0.55,0.0015)
+bonesSkullG1.add(bonesG1_2.group)
+
+const bonesG1_3 = new Bones(-2,0,-2.4,Math.PI*0.5,0,0,0.0015)
+bonesSkullG1.add(bonesG1_3.group)
+
+const bonesG1_4 = new Bones(-2.01,0.02,-2.5,0,Math.PI*0.2,Math.PI*0.55,0.0015)
+bonesSkullG1.add(bonesG1_4.group)
+
+const bonesSkullG2 = new THREE.Group()
+bonesSkullG2.position.set(0,0,5)
+thirdSegment.add(bonesSkullG2)
+
+const bonesG2_1 = new Bones(2,0.04,2,Math.PI*0.5,0,-Math.PI*0.6,0.003)
+bonesSkullG2.add(bonesG2_1.group)
+
+const bonesSkullG3 = new THREE.Group()
+bonesSkullG3.position.set(0,0.05,-2)
+fourthSegment.add(bonesSkullG3)
+
+const bonesG3_1 = new Bones(2,0.04,4,Math.PI*0.5,0,-Math.PI*0.6,0.003)
+bonesSkullG3.add(bonesG3_1.group)
+
+const bonesG3_2 = new Bones(2,0.04,1,Math.PI*0.5,0,-Math.PI*0.6,0.003)
+bonesSkullG3.add(bonesG3_2.group)
+
+const bonesG3_3 = new Bones(2,0.04,-2,Math.PI*0.5,0,-Math.PI*0.6,0.003)
+bonesSkullG3.add(bonesG3_3.group)
+
+const bonesG3_4 = new Bones(-2,0.04,4,Math.PI*0.5,0,-Math.PI*0.6,0.003)
+bonesSkullG3.add(bonesG3_4.group)
+
+const bonesG3_5 = new Bones(-2,0.04,1,Math.PI*0.5,0,-Math.PI*0.6,0.003)
+bonesSkullG3.add(bonesG3_5.group)
+
+const bonesG3_6 = new Bones(-2,0.04,-2,Math.PI*0.5,0,-Math.PI*0.6,0.003)
+bonesSkullG3.add(bonesG3_6.group)
+
+
+const skull = new Skull(0, 5, 0)
+bonesSkullG1.add(skull.group)
+
+
+const torch1 = new Torch(-0.91,1,0,0,Math.PI*0.5,0)
+firstSegment.add(torch1.group)
+
+const torch2 = new Torch(4.2,1,-5.91,0,0,0)
+firstSegment.add(torch2.group)
+
+const torch3 = new Torch(0,1,-3.9,0,0,0)
+secondSegment.add(torch3.group)
+
+const torch4 = new Torch(0,1,3.9,0,Math.PI,0)
+secondSegment.add(torch4.group)
+
+const torch5 = new Torch(14,1,0.9,0,Math.PI,0)
+secondSegment.add(torch5.group)
+
+// const torch2 = new Torch2()
+// scene.add(torch2.group)
+
+
+const pillier = new Pillier()
+scene.add(pillier.group)
 
 //Add floor
 const wetFloor1 = new WetFloors(12, 12,3,0)

@@ -23,10 +23,10 @@ export default class Skull
             {
                 console.log(_gltf)
                 this.skull = _gltf.scene
-
-                this.skull.scale.set(0.01, 0.01, 0.01)
-                this.skull.rotation.set(Math.PI, 0,0)
                 this.skull.position.set(_x, _y, _z)
+                this.skull.scale.set(0.1, 0.1, 0.1)
+                this.skull.rotation.set(Math.PI, 0,0)
+
                 this.group.add(this.skull)
             }
         )

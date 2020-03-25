@@ -5,7 +5,7 @@ import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 
 export default class Bones
 {
-    constructor(_x, _y, _z)
+    constructor(_x,_y,_z,_rotX,_rotY,_rotZ,_scale)
     {
         this.group = new THREE.Group()
 
@@ -23,10 +23,9 @@ export default class Bones
             {
                 console.log(_gltf)
                 this.bones = _gltf.scene
-
-                this.bones.scale.set(0.01, 0.01, 0.01)
-                this.bones.rotation.set(Math.PI, 0,0)
-                // this.bones.position.set(_x, _y, _z)
+                this.bones.position.set(_x, _y, _z)
+                this.bones.rotation.set(_rotX,_rotY,_rotZ)
+                this.bones.scale.set(_scale,_scale,_scale)
                 this.group.add(this.bones)
             }
         )

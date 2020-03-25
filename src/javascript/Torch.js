@@ -5,7 +5,7 @@ import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 
 export default class Torch
 {
-    constructor(_x, _y, _z)
+    constructor(_x, _y, _z, _rotationX,_rotationY,_rotationZ)
     {
         this.group = new THREE.Group()
 
@@ -24,9 +24,10 @@ export default class Torch
                 console.log(_gltf)
                 this.torch = _gltf.scene
 
+                this.torch.position.set(_x, _y, _z)
+                this.torch.rotation.set(_rotationX,_rotationY,_rotationZ)
                 this.torch.scale.set(0.01, 0.01, 0.01)
-                this.torch.rotation.set(Math.PI, 0,0)
-                // this.torch.position.set(_x, _y, _z)
+                console.log(_x)
                 this.group.add(this.torch)
             }
         )
