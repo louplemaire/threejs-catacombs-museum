@@ -16,7 +16,7 @@ import FlashLight from './javascript/FlashLight.js'
 // import Planes from './javascript/Planes.js'
 import Graffiti from './javascript/Graffiti.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import CircleRoom from './javascript/CircleRoom'
+import CircleRoom from './javascript/CircleRoom.js'
 // import { TweenLite } from 'gsap/all'
 
 /**
@@ -129,6 +129,11 @@ secondSegment.add(wall7.group)
 const wall8 = new Walls(2,2,8,17,-3)
 secondSegment.add(wall8.group)
 
+//Circle Room
+
+const circleRoom = new CircleRoom(4,15,-11)
+secondSegment.add(circleRoom.group)
+
 //Third Segment
 const thirdSegment = new THREE.Group()
 thirdSegment.position.set(28,0,-31)
@@ -175,6 +180,20 @@ fourthSegment.add(wall19.group)
 const wall20 = new Walls(1,2,2,9.5,9)
 fourthSegment.add(wall20.group)
 
+//Add Graffiti
+
+const graffWall1 = new Graffiti(1.5,-5.95,0)
+firstSegment.add(graffWall1.fourGroup)
+
+const graffWall2 = new Graffiti(8,0.95,Math.PI)
+secondSegment.add(graffWall2.thirdGroup)
+
+const graffWall3 = new Graffiti(12.95,0,-Math.PI*0.5)
+thirdSegment.add(graffWall3.secondGroup)
+
+const graffWall4 = new Graffiti(2,9.95,Math.PI)
+fourthSegment.add(graffWall4.firstGroup)
+
 //Add floor
 const wetFloor1 = new WetFloors(12, 12,3,0)
 firstSegment.add(wetFloor1.group)
@@ -203,8 +222,8 @@ const ceiling4 = new Ceilings(18,14,3,3)
 fourthSegment.add(ceiling4.group)
 
 //Add plane
-// const plane = new Planes()
-// scene.add(plane.group)
+const plane = new Planes(28,-35.5)
+scene.add(plane.group)
 
 
 /**
@@ -323,11 +342,28 @@ const movement = () =>
 }
 movement()
 
+/**
+ * Buttons
+ */
+// Start buton
 const startButton = document.querySelector(".js-start-button")
 const landingPage = document.querySelector(".landing")
 
-startButton.addEventListener('click', () =>
-{
+startButton.addEventListener('click', () => {
     landingPage.style.opacity = 0
-    landingPage.classList.add('isVisible')
+    landingPage.classList.add('is-visible')
+})
+
+// Open cultural popup
+
+// Close cultural popup
+const closeButtons = document.querySelectorAll('.js-close-button')
+const popups = document.querySelectorAll('.js-popup-information')
+
+closeButtons.forEach(_closeButton => {
+    _closeButton.addEventListener('click', () => {
+        popups.forEach(_popup => {
+            _popup.classList.add('is-visible')
+        })
+    })
 })

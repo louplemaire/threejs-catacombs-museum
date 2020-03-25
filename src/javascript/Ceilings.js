@@ -41,11 +41,10 @@ export default class Ceilings {
                     map: ceilingColorTexture,
                     aoMap: ceilingAmbientOcclusionTexture,
                     displacementMap: ceilingDisplacementTexture,
-                    displacementScale: .1,
+                    displacementScale: 0.1,
                     roughnessMap: ceilingRoughnessTexture,
                     alphaMap: ceilingAlphaTexture,
                     normalMap: ceilingNormalTexture,
-                    side: THREE.DoubleSide
                 }
             )
         )

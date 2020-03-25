@@ -4,42 +4,32 @@ import * as THREE from 'three'
  * Textures
 */
 
-import brickWallsColorSource from '../textures/brick_walls/color.jpg'
-import brickWallsAmbientOcclusionSource from '../textures/brick_walls/ambientOcclusion.jpg'
-import brickWallsDisplacementSource from '../textures/brick_walls/displacement.jpg'
-import brickWallsNormalSource from '../textures/brick_walls/normal.jpg'
-import brickWallsRoughnessSource from '../textures/brick_walls/roughness.jpg'
-import brickWallsAlphaSource from '../textures/brick_walls/alpha.jpg'
-
 const textureLoader = new THREE.TextureLoader()
 
-const brickWallsColorTexture = textureLoader.load(brickWallsColorSource)
-const brickWallsAmbientOcclusionTexture = textureLoader.load(brickWallsAmbientOcclusionSource)
-const brickWallsDisplacementTexture = textureLoader.load(brickWallsDisplacementSource)
-const brickWallsNormalTexture = textureLoader.load(brickWallsNormalSource)
-const brickWallsRoughnessTexture = textureLoader.load(brickWallsRoughnessSource)
-const brickWallsAlphaTexture = textureLoader.load(brickWallsAlphaSource)
-
-const brickWallTexture = 
-{
-    map: brickWallsColorTexture,
-    aoMap: brickWallsAmbientOcclusionTexture,
-    displacementMap: brickWallsDisplacementTexture,
-    displacementScale: 0,
-    roughnessMap: brickWallsRoughnessTexture,
-    alphaMap: brickWallsAlphaTexture,
-    normalMap: brickWallsNormalTexture
-}
-
 export default class Planes {
-    constructor(){
+    constructor(_x,_z){
         this.group = new THREE.Group()
+        
+        // Material
+
+        // const material1 = new THREE.MeshStandardMaterial
+        // (
+        //     {
+        //         map: brickWallsColorTexture,
+        //         aoMap: brickWallsAmbientOcclusionTexture,
+        //         displacementMap: brickWallsDisplacementTexture,
+        //         displacementScale: 0,
+        //         roughnessMap: brickWallsRoughnessTexture,
+        //         alphaMap: brickWallsAlphaTexture,
+        //         normalMap: brickWallsNormalTexture
+        //     }
+        // )
 
         const plane = new THREE.Mesh(
             new THREE.PlaneGeometry(2,2),
-            new THREE.MeshStandardMaterial(brickWallTexture)
+            new THREE.MeshStandardMaterial()
         )
-        plane.position.set(28,1,-35.5)
+        plane.position.set(_x,1,_z)
         plane.rotation.set(0,0,0)
         this.group.add(plane)
     }

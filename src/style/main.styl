@@ -76,7 +76,7 @@ body
         transform translateX(-50%)
         text-decoration none
         font-family $font-title
-        $font-size-subtitle
+        font-size $font-size-subtitle
         letter-spacing 10px
         text-transform uppercase
         color $primary-color
@@ -90,24 +90,39 @@ body
 /**
  * Cultural content
  */
-.popUpInformation
+.popup-information
     position absolute
-    top 20%
-    left 35%
-    width 30%
-    height auto
+    top 30%
+    left 50%
+    transform translateX(-50%)
+    width 65vw
+    height 100vh
     border-radius 5px
-    background-color #fff
-    padding 20px
-    h2
-        margin-bottom 10px
-        text-align center
-        font-family $font-title
-        font-size $font-size-subtitle
-    p
-        text-align center
-        font-family $font-text
-        font-size $font-size-text
+    background-image url('../images/parchment.png')
+    background-repeat no-repeat
+    background-position top left
+    z-index 100
+    .text
+        padding 80px 200px 20px 200px
+        .close-button
+            text-decoration none
+            font-family $font-title
+            font-size $font-size-text
+            color #000000
+            will-change opacity
+            &:hover
+                opacity 0.6
+                transition 0.3s
+                transition-timing-function ease-in-out
+        h2
+            margin 40px 0px 20px 0px
+            font-family $font-title
+            font-size $font-size-subtitle
+        p
+            width 40vw
+            font-family $font-text
+            font-size $font-size-text
+            line-height 24px
 
-.isVisible
+.is-visible
     display none
