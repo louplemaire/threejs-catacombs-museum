@@ -11,7 +11,7 @@ import FlashLight from './javascript/FlashLight.js'
 import Planes from './javascript/Planes.js'
 import Graffiti from './javascript/Graffiti.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
-import CircleRoom from './javascript/CircleRoom'
+import CircleRoom from './javascript/CircleRoom.js'
 // import { TweenLite } from 'gsap/all'
 
 /**
@@ -105,6 +105,11 @@ secondSegment.add(wall7.group)
 
 const wall8 = new Walls(2,2,8,17,-3)
 secondSegment.add(wall8.group)
+
+//Circle Room
+
+const circleRoom = new CircleRoom(-1,25,-11)
+secondSegment.add(circleRoom.group)
 
 //Third Segment
 const thirdSegment = new THREE.Group()
