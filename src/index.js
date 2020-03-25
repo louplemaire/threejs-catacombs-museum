@@ -6,6 +6,7 @@ import * as THREE from 'three'
 import Walls from './javascript/Walls.js'
 import Ceilings from './javascript/Ceilings.js'
 import Floors from './javascript/Floors.js'
+import WetFloors from './javascript/WetFloor.js'
 import Planes from './javascript/Planes.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import CircleRoom from './javascript/CircleRoom'
@@ -39,8 +40,8 @@ const scene = new THREE.Scene()
  * Objects
  */
 //Add floor
-const floor = new Floors(12, 2, 0)
-scene.add(floor.group)
+const wetFloor = new WetFloors(12, 2, 0)
+scene.add(wetFloor.group)
 
 //Add ceiling
 const ceiling = new Ceilings(12, 2, 0, -6)
@@ -143,7 +144,7 @@ scene.add(camera)
  * Lights
  */
 
-const ambientLight = new THREE.AmbientLight(0xffffff, .5)
+const ambientLight = new THREE.AmbientLight(0xffffff, .7)
 scene.add(ambientLight)
 
 // const directionalLight = new THREE.DirectionalLight(0x00fffc, 0.3)
