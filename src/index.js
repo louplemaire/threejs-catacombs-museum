@@ -199,7 +199,7 @@ const ceiling4 = new Ceilings(18,14,3,3)
 fourthSegment.add(ceiling4.group)
 
 //Add plane
-const plane = new Planes()
+const plane = new Planes(28,-35.5)
 scene.add(plane.group)
 
 
