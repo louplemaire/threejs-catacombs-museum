@@ -108,7 +108,7 @@ secondSegment.add(wall8.group)
 
 //Circle Room
 
-const circleRoom = new CircleRoom(-1,25,-11)
+const circleRoom = new CircleRoom(4,15,-11)
 secondSegment.add(circleRoom.group)
 
 //Third Segment
