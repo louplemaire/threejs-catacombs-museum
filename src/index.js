@@ -9,6 +9,7 @@ import Floors from './javascript/Floors.js'
 import WetFloors from './javascript/WetFloor.js'
 import FlashLight from './javascript/FlashLight.js'
 import Planes from './javascript/Planes.js'
+import Graffiti from './javascript/Graffiti.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import CircleRoom from './javascript/CircleRoom'
 // import { TweenLite } from 'gsap/all'
@@ -53,6 +54,9 @@ scene.add(ceiling.group)
 // scene.add(plane.group)
 
 //Add walls
+
+const graffWall = new Graffiti()
+scene.add(graffWall.fourGroup)
 
 //First segment
 const firstSegment = new THREE.Group()
