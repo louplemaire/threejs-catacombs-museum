@@ -14,6 +14,27 @@ import CircleRoom from './javascript/CircleRoom'
 // import { TweenLite } from 'gsap/all'
 
 /**
+ * Images
+ */
+// Sewer
+import sewerImage from './images/sewer.png'
+
+const sewerImageContainer = document.querySelector('.js-sewer-image')
+const $sewerImage = new Image()
+$sewerImage.src = sewerImage
+sewerImageContainer.appendChild($sewerImage)
+$sewerImage.setAttribute('alt', 'Sewer image')
+
+// Smoke
+import smokeImage from './images/smoke.png'
+
+const smokeImageContainer = document.querySelector('.js-smoke-image')
+const $smokeImage = new Image()
+$smokeImage.src = smokeImage
+smokeImageContainer.appendChild($smokeImage)
+$smokeImage.setAttribute('alt', 'Smoke image')
+
+/**
  * Sizes
  */
 const sizes = {}
