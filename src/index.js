@@ -282,10 +282,10 @@ fourthSegment.add(torch7.group)
 
 //Ladders
 
-const ladderEntry = new Lader(0.1,0,4.7,Math.PI*0.5)
+const ladderEntry = new Lader(0.1,0,4.7,Math.PI*0.5,0,0)
 firstSegment.add(ladderEntry.group)
 
-const ladderExit = new Lader(8,0,10,0)
+const ladderExit = new Lader(8.5,0,9.1,Math.PI*0.5,-Math.PI*0.5, Math.PI*0.5)
 fourthSegment.add(ladderExit.group)
 
 //Pillars
