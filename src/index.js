@@ -16,6 +16,7 @@ import FlashLight from './javascript/FlashLight.js'
 import TorchLight from './javascript/TorchLight.js'
 import Planes from './javascript/Planes.js'
 import Graffiti from './javascript/Graffiti.js'
+import Lader from './javascript/Lader.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import CircleRoom from './javascript/CircleRoom.js'
 import { TweenLite, TimelineLite } from 'gsap/all'
@@ -353,6 +354,11 @@ fourthSegment.add(ceiling4.group)
 const bunkerWall = new Planes(28,-35.5)
 scene.add(bunkerWall.group)
 
+//Add lader
+
+const lader = new Lader(0, 0, 0)
+scene.add(lader.group)
+
 
 /**
  * Camera
@@ -366,7 +372,7 @@ scene.add(camera)
  * Lights
  */
 
-const ambientLight = new THREE.AmbientLight(0xffffff, .3)
+const ambientLight = new THREE.AmbientLight(0xffffff, 1)
 scene.add(ambientLight)
 
 const torchLight1 = new TorchLight(-0.5, 1.5, -6)
@@ -655,3 +661,9 @@ const loop = () => {
 }
 
 loop()
+
+
+window.addEventListener('load', () =>
+{
+    console.log('load')
+})
