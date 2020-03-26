@@ -16,12 +16,14 @@ import FlashLight from './javascript/FlashLight.js'
 import TorchLight from './javascript/TorchLight.js'
 import Planes from './javascript/Planes.js'
 import Graffiti from './javascript/Graffiti.js'
+import Lader from './javascript/Lader.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import CircleRoom from './javascript/CircleRoom.js'
 import { TweenLite, TimelineLite } from 'gsap/all'
 import walkSound from './audios/walk-sound.mp3'
 import ambientSound from './audios/ambient-sound.mp3'
 import ambientMusic from './audios/music.mp3'
+import paperSound from './audios/paper.mp3'
 
 /**
  * Images
@@ -362,6 +364,11 @@ fourthSegment.add(ceiling4.group)
 const bunkerWall = new Planes(28,-35.5)
 scene.add(bunkerWall.group)
 
+//Add lader
+
+const lader = new Lader(0, 0, 0)
+scene.add(lader.group)
+
 
 /**
  * Camera
@@ -375,7 +382,7 @@ scene.add(camera)
  * Lights
  */
 
-const ambientLight = new THREE.AmbientLight(0xffffff, .3)
+const ambientLight = new THREE.AmbientLight(0xffffff, 1)
 scene.add(ambientLight)
 
 const torchLight1 = new TorchLight(-0.5, 1.5, -6)
@@ -420,6 +427,9 @@ sound.volume = 1
 const music = new Audio(ambientMusic)
 music.volume = 0.2
 
+const paper = new Audio(paperSound)
+paper.volume = 0.5
+
 /**
  * Raycaster
  */
@@ -432,6 +442,8 @@ const raycaster = new THREE.Raycaster()
 let canScroll = false
 // Block open popups
 let canOpen = false
+// Block the camera rotation
+let popupIsClose = false
 
 // Start buton
 const startButton = document.querySelector(".js-start-button")
@@ -447,8 +459,12 @@ startButton.addEventListener('click', () => {
     // Play sound
     sound.play()
     sound.loop = true
+
     music.play()
     music.loop = true
+
+    paper.currentTime = 0
+    paper.play()
 
     // Open welcome popup
     popups[0].classList.remove('is-visible')
@@ -466,30 +482,46 @@ let hoverBunkerWall = false
 let hoverBones = false
 
 document.addEventListener('click', () =>{
-    if(hoverGraffiti && canOpen){
-        popups[3].classList.remove('is-visible')
+    if(canOpen){
+        if(hoverGraffiti){
+            popups[3].classList.remove('is-visible')
+
+            paper.currentTime = 0
+            paper.play()
+
+            popupIsClose = false
+        }
+
+        if(hoverBunkerWall){
+            popups[2].classList.remove('is-visible')
+
+            paper.currentTime = 0
+            paper.play()
+
+            popupIsClose = false
+        }
+
+        if(hoverBones){
+            popups[1].classList.remove('is-visible')
+
+            paper.currentTime = 0
+            paper.play()
+
+            popupIsClose = false
+        }
     }
 })
-
-document.addEventListener('click', () =>{
-    if(hoverBunkerWall && canOpen){
-        popups[2].classList.remove('is-visible')
-    }
-})
-
-document.addEventListener('click', () =>{
-    if(hoverBones && canOpen){
-        popups[1].classList.remove('is-visible')
-    }
-})
-
 
 // Close cultural popup
 closeButtons.forEach(_closeButton => {
     _closeButton.addEventListener('click', () => {
         popups.forEach(_popup => {
             _popup.classList.add('is-visible')
+
+            paper.currentTime = 0
+            paper.play()
         })
+        popupIsClose = true
     })
 })
 
@@ -596,9 +628,11 @@ const loop = () => {
     window.requestAnimationFrame(loop)
 
     // Camera
-    const angle = cursor.x * Math.PI * 2
-    camera.rotation.y = - angle * 2
-    
+    if(popupIsClose){
+        const angle = cursor.x * Math.PI * 2
+        camera.rotation.y = - angle * 2
+    }
+    console.log(popupIsClose);
     //Update flashLight coord
     flashLight.group.position.set(camera.position.x, camera.position.y, camera.position.z)
 
@@ -664,3 +698,9 @@ const loop = () => {
 }
 
 loop()
+
+
+window.addEventListener('load', () =>
+{
+    console.log('load')
+})
