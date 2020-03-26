@@ -21,7 +21,6 @@ export default class Lader
             '/models/lader/echelle.gltf',
             (_gltf) =>
             {
-                console.log(_gltf)
                 this.lader = _gltf.scene.children[2]
                 this.lader.position.set(_x, _y, _z)
                 this.lader.scale.set(0.1, 0.1, 0.1)

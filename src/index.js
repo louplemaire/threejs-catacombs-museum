@@ -12,7 +12,7 @@ import Ceilings from './javascript/Ceilings.js'
 import Floors from './javascript/Floors.js'
 import WetFloors from './javascript/WetFloor.js'
 // import FlashLight from './javascript/FlashLight.js'
-import TorchLight from './javascript/TorchLight.js'
+// import TorchLight from './javascript/TorchLight.js'
 import Planes from './javascript/Planes.js'
 import Graffiti from './javascript/Graffiti.js'
 import Lader from './javascript/Lader.js'
@@ -110,9 +110,6 @@ const scene = new THREE.Scene()
  */
 
 //Add walls
-
-// const graffWall = new Graffiti()
-// scene.add(graffWall.fourGroup)
 
 //First segment
 const firstSegment = new THREE.Group()
@@ -419,26 +416,26 @@ scene.add(camera)
 const ambientLight = new THREE.AmbientLight(0xffffff, .1)
 scene.add(ambientLight)
 
-const torchLight1 = new TorchLight(-0.5, 1.5, -6)
-scene.add(torchLight1.group)
+// const torchLight1 = new TorchLight(-0.5, 1.5, -6)
+// scene.add(torchLight1.group)
 
-const torchLight2 = new TorchLight(4, 1.5, -11.5)
-scene.add(torchLight2.group)
+// const torchLight2 = new TorchLight(4, 1.5, -11.5)
+// scene.add(torchLight2.group)
 
-const torchLight3 = new TorchLight(12.8, 1.5, -7.5)
-scene.add(torchLight3.group)
+// const torchLight3 = new TorchLight(12.8, 1.5, -7.5)
+// scene.add(torchLight3.group)
 
-const torchLight4 = new TorchLight(12.8, 1.5, -14.5)
-scene.add(torchLight4.group)
+// const torchLight4 = new TorchLight(12.8, 1.5, -14.5)
+// scene.add(torchLight4.group)
 
-const torchLight5 = new TorchLight(27, 1.5, -10)
-scene.add(torchLight5.group)
+// const torchLight5 = new TorchLight(27, 1.5, -10)
+// scene.add(torchLight5.group)
 
-const torchLight6 = new TorchLight(37.5, 1.5, -21)
-scene.add(torchLight6.group)
+// const torchLight6 = new TorchLight(37.5, 1.5, -21)
+// scene.add(torchLight6.group)
 
-const torchLight7 = new TorchLight(42.5, 1.5, -21)
-scene.add(torchLight7.group)
+// const torchLight7 = new TorchLight(42.5, 1.5, -21)
+// scene.add(torchLight7.group)
 
 // const torchLight5 = new TorchLight(27, 1.5, -10)
 // scene.add(torchLight5.group)

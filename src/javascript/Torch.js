@@ -18,7 +18,6 @@ export default class Torch
                 this.torch.position.set(_x, _y, _z)
                 this.torch.rotation.set(_rotationX,_rotationY,_rotationZ)
                 this.torch.scale.set(0.01, 0.01, 0.01)
-                console.log(_x)
                 this.group.add(this.torch)
             }
         )
