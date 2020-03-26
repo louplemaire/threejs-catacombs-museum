@@ -53,6 +53,35 @@ const $parchmentImage = new Image()
 $parchmentImage.src = parchmentImage
 $parchmentImage.setAttribute('alt', 'Parchment image')
 
+// Bunker
+import bunkerImage from './images/bunker.jpg'
+
+const bunkerImageContainer = document.querySelector('.js-bunker-image')
+const $bunkerImage = new Image()
+$bunkerImage.src = bunkerImage
+bunkerImageContainer.appendChild($bunkerImage)
+$bunkerImage.setAttribute('alt', 'bunker image')
+
+// tags
+import tagsImage from './images/tags.jpg'
+
+const tagsImageContainer = document.querySelector('.js-tags-image')
+const $tagsImage = new Image()
+$tagsImage.src = tagsImage
+tagsImageContainer.appendChild($tagsImage)
+$tagsImage.setAttribute('alt', 'tags image')
+
+// bonesSkullDescription
+import bonesSkullDescriptionImage from './images/bonesSkullDescription.jpg'
+
+const bonesSkullDescriptionImageContainer = document.querySelector('.js-bonesSkullDescription-image')
+const $bonesSkullDescriptionImage = new Image()
+$bonesSkullDescriptionImage.src = bonesSkullDescriptionImage
+bonesSkullDescriptionImageContainer.appendChild($bonesSkullDescriptionImage)
+$bonesSkullDescriptionImage.setAttribute('alt', 'bonesSkullDescription image')
+
+
+
 /**
  * Sizes
  */
