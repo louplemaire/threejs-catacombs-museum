@@ -427,6 +427,8 @@ const raycaster = new THREE.Raycaster()
 let canScroll = false
 // Block open popups
 let canOpen = false
+// Block the camera rotation
+let popupIsClose = false
 
 // Start buton
 const startButton = document.querySelector(".js-start-button")
@@ -470,6 +472,8 @@ document.addEventListener('click', () =>{
 
         paper.currentTime = 0
         paper.play()
+
+        popupIsClose = false
     }
 })
 
@@ -479,6 +483,8 @@ document.addEventListener('click', () =>{
 
         paper.currentTime = 0
         paper.play()
+
+        popupIsClose = false
     }
 })
 
@@ -488,6 +494,8 @@ document.addEventListener('click', () =>{
 
         paper.currentTime = 0
         paper.play()
+
+        popupIsClose = false
     }
 })
 
@@ -497,10 +505,11 @@ closeButtons.forEach(_closeButton => {
     _closeButton.addEventListener('click', () => {
         popups.forEach(_popup => {
             _popup.classList.add('is-visible')
-            
+
             paper.currentTime = 0
             paper.play()
         })
+        popupIsClose = true
     })
 })
 
@@ -607,8 +616,10 @@ const loop = () => {
     window.requestAnimationFrame(loop)
 
     // Camera
-    const angle = cursor.x * Math.PI * 2
-    camera.rotation.y = - angle * 2
+    if(popupIsClose){
+        const angle = cursor.x * Math.PI * 2
+        camera.rotation.y = - angle * 2
+    }
     
     //Update flashLight coord
     flashLight.group.position.set(camera.position.x, camera.position.y, camera.position.z)
