@@ -497,6 +497,7 @@ closeButtons.forEach(_closeButton => {
     _closeButton.addEventListener('click', () => {
         popups.forEach(_popup => {
             _popup.classList.add('is-visible')
+            
             paper.currentTime = 0
             paper.play()
         })
