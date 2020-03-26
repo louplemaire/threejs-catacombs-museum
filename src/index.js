@@ -537,20 +537,15 @@ closeButtons.forEach(_closeButton => {
 const tl = new TimelineLite()
 tl.pause()
 
-// tl.to(camera.rotation, 2, {y: Math.PI * 2, ease: 'Power3.easeInOut'})
-tl.to(camera.position, 2, {z: - 11, ease: 'Power3.easeInOut'})
-// .to(camera.rotation, 2, {y: Math.PI * 1.5, ease: 'Power3.easeInOut'})
+tl.to(camera.position, 2, {z: - 8, ease: 'Power3.easeInOut'})
+.to(camera.position, 2, {z: - 11, ease: 'Power3.easeInOut'})
 .to(camera.position, 2, {x: 10, ease: 'Power3.easeInOut'})
 .to(camera.position, 2, {x: 28, ease: 'Power3.easeInOut'})
-// .to(camera.rotation, 2, {y: Math.PI * 2, ease: 'Power3.easeInOut'})
 .to(camera.position, 2, {z: - 20, ease: 'Power3.easeInOut'})
 .to(camera.position, 2, {z: - 33, ease: 'Power3.easeInOut'})
-// .to(camera.rotation, 2, {y: Math.PI * 1.5, ease: 'Power3.easeInOut'})
 .to(camera.position, 2, {x: 40, ease: 'Power3.easeInOut'})
-// .to(camera.rotation, 2, {y: Math.PI, ease: 'Power3.easeInOut'})
 .to(camera.position, 2, {z: - 26, ease: 'Power3.easeInOut'})
 .to(camera.position, 2, {z: - 11, ease: 'Power3.easeInOut'})
-// .to(camera.rotation, 2, {y: Math.PI * 1.5, ease: 'Power3.easeInOut'})
 .to(camera.position, 2, {x: 46, ease: 'Power3.easeInOut'})
 
 window.addEventListener('wheel', (_event) => {
@@ -558,7 +553,6 @@ window.addEventListener('wheel', (_event) => {
         // Accept the scroll
         setTimeout(function() {
             canScroll = true
-            console.log(canScroll);
         }, 2000)
 
         // If we scroll down
@@ -596,8 +590,6 @@ window.addEventListener('wheel', (_event) => {
         }
     }
 })
-
-console.log(canScroll);
 
 /**
  * Renderer
@@ -638,6 +630,7 @@ const loop = () => {
         const angle = cursor.x * Math.PI * 2
         camera.rotation.y = - angle * 2
     }
+
     //Update flashLight coord
     flashLight.group.position.set(camera.position.x, camera.position.y, camera.position.z)
 
@@ -703,7 +696,6 @@ const loop = () => {
 }
 
 loop()
-
 
 window.addEventListener('load', () =>
 {
