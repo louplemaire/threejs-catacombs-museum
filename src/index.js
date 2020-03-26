@@ -91,6 +91,9 @@ const firstSegment = new THREE.Group()
 firstSegment.position.set(0,0,-6)
 scene.add(firstSegment)
 
+const wall0 = new Walls(2,2,2,0,6)
+firstSegment.add(wall0.group)
+
 const wall1 = new Walls(8,2,10,5,1)
 firstSegment.add(wall1.group)
 
@@ -277,6 +280,14 @@ fourthSegment.add(torch6.group)
 const torch7 = new Torch(2.90,1,-0.9,0,-Math.PI*0.5,0)
 fourthSegment.add(torch7.group)
 
+//Ladders
+
+const ladderEntry = new Lader(0.1,0,4.7,Math.PI*0.5)
+firstSegment.add(ladderEntry.group)
+
+const ladderExit = new Lader(8,0,10,0)
+fourthSegment.add(ladderExit.group)
+
 //Pillars
 
 const pillar0 = new Pillars(1,1,-12,1)
@@ -363,11 +374,6 @@ fourthSegment.add(ceiling4.group)
 //Add plane
 const bunkerWall = new Planes(28,-35.5)
 scene.add(bunkerWall.group)
-
-//Add lader
-
-const lader = new Lader(0, 0, 0)
-scene.add(lader.group)
 
 
 /**
@@ -632,7 +638,6 @@ const loop = () => {
         const angle = cursor.x * Math.PI * 2
         camera.rotation.y = - angle * 2
     }
-    console.log(popupIsClose);
     //Update flashLight coord
     flashLight.group.position.set(camera.position.x, camera.position.y, camera.position.z)
 

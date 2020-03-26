@@ -5,7 +5,7 @@ import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 
 export default class Lader
 {
-    constructor(_x, _y, _z)
+    constructor(_x, _y, _z, _rotate)
     {
         this.group = new THREE.Group()
 
@@ -25,7 +25,7 @@ export default class Lader
                 this.lader = _gltf.scene.children[2]
                 this.lader.position.set(_x, _y, _z)
                 this.lader.scale.set(0.1, 0.1, 0.1)
-                // this.lader.rotation.set(Math.PI, 0,0)
+                this.lader.rotation.set(_rotate, 0,0)
 
                 this.group.add(this.lader)
             }
