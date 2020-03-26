@@ -11,7 +11,7 @@ import Walls from './javascript/Walls.js'
 import Ceilings from './javascript/Ceilings.js'
 import Floors from './javascript/Floors.js'
 import WetFloors from './javascript/WetFloor.js'
-// import FlashLight from './javascript/FlashLight.js'
+import FlashLight from './javascript/FlashLight.js'
 // import TorchLight from './javascript/TorchLight.js'
 import Planes from './javascript/Planes.js'
 import Graffiti from './javascript/Graffiti.js'
@@ -440,11 +440,8 @@ scene.add(ambientLight)
 // const torchLight5 = new TorchLight(27, 1.5, -10)
 // scene.add(torchLight5.group)
 
-// const flashLight = new FlashLight(0, 0, 0)
-// scene.add(flashLight.group)
-// const directionalLight = new THREE.DirectionalLight(0x00fffc, 0.3)
-// directionalLight.position.set(0,1,1)
-// scene.add(directionalLight)
+const flashLight = new FlashLight(0, 0, 0)
+scene.add(flashLight.group)
 
 /**
  * Sounds
@@ -654,7 +651,7 @@ const loop = () => {
     }
 
     //Update flashLight coord
-    // flashLight.group.position.set(camera.position.x, camera.position.y, camera.position.z)
+    flashLight.group.position.set(camera.position.x, camera.position.y, camera.position.z)
 
     // cameraControls.update()
 
