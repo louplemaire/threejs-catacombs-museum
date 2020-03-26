@@ -21,7 +21,6 @@ export default class Torch
             '/models/torch/torch2.gltf',
             (_gltf) =>
             {
-                console.log(_gltf)
                 this.torch = _gltf.scene
 
                 this.torch.position.set(_x, _y, _z)

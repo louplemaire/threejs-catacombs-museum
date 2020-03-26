@@ -21,7 +21,6 @@ export default class Skull
             '/models/skull/skull.gltf',
             (_gltf) =>
             {
-                console.log(_gltf)
                 this.skull = _gltf.scene
                 this.skull.position.set(_x, _y, _z)
                 this.skull.scale.set(0.1, 0.1, 0.1)

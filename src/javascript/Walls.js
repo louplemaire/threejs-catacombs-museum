@@ -42,7 +42,7 @@ export default class Walls {
                 displacementMap: wallDisplacementTexture,
                 displacementScale: 0.1,
                 roughnessMap: wallRoughnessTexture,
-                roughness: 0.5,
+                roughness: 0,
                 alphaMap: wallAlphaTexture,
                 normalMap: wallNormalTexture
             }
