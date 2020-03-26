@@ -18,6 +18,9 @@ import Graffiti from './javascript/Graffiti.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import CircleRoom from './javascript/CircleRoom.js'
 import { TweenLite, TimelineLite } from 'gsap/all'
+import walkSound from './audios/walk-sound.mp3'
+import ambientSound from './audios/ambient-sound.mp3'
+import ambientMusic from './audios/music.mp3'
 
 /**
  * Images
@@ -373,6 +376,18 @@ scene.add(flashLight.group)
 // scene.add(directionalLight)
 
 /**
+ * Sounds
+ */
+const walk = new Audio(walkSound)
+walk.volume = 0.6
+
+const sound = new Audio(ambientSound)
+sound.volume = 1
+
+const music = new Audio(ambientMusic)
+music.volume = 0.2
+
+/**
  * Buttons
  */
 // Start buton
@@ -382,6 +397,10 @@ const landingPage = document.querySelector(".landing")
 startButton.addEventListener('click', () => {
     landingPage.style.opacity = 0
     landingPage.classList.add('is-visible')
+    sound.play()
+    sound.loop = true
+    music.play()
+    music.loop = true
 })
 
 // Open cultural popup
@@ -435,7 +454,8 @@ window.addEventListener('wheel', (_event) => {
         if(_event.deltaY > 0)
         {
             tl.play()
-            console.log("play");
+            walk.currentTime = 0
+            walk.play()
 
             // Block the scroll
             canScroll = false
@@ -443,7 +463,7 @@ window.addEventListener('wheel', (_event) => {
             // Block animation
             setTimeout(function() {
                 tl.pause()
-                console.log("pause");
+                walk.pause()
             }, 2000)
         }
 
@@ -451,15 +471,16 @@ window.addEventListener('wheel', (_event) => {
         if(_event.deltaY < 0)
         {
             tl.reverse()
-            console.log("reverse");
-
+            walk.currentTime = 0
+            walk.play()
+            
             // Block the scroll
             canScroll = false
 
             // Block animation
             setTimeout(function() {
                 tl.pause()
-                console.log("pause");
+                walk.pause()
             }, 2000)
         }
     }
