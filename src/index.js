@@ -454,7 +454,6 @@ let popupIsClose = false
 // Start buton
 const startButton = document.querySelector(".js-start-button")
 const landingPage = document.querySelector(".landing")
-const closeButtons = document.querySelectorAll('.js-close-button')
 const popups = document.querySelectorAll('.js-popup-information')
 
 startButton.addEventListener('click', () => {
