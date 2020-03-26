@@ -6,13 +6,14 @@ import * as THREE from 'three'
 import Skull from './javascript/Skull.js'
 import Bones from './javascript/Bones.js'
 import Torch from './javascript/Torch.js'
-import Pillier from './javascript/Pillier.js'
+import Pillars  from './javascript/Pillars.js'
 // import Torch2 from './javascript/Torch2.js'
 import Walls from './javascript/Walls.js'
 import Ceilings from './javascript/Ceilings.js'
 import Floors from './javascript/Floors.js'
 import WetFloors from './javascript/WetFloor.js'
 import FlashLight from './javascript/FlashLight.js'
+import TorchLight from './javascript/TorchLight.js'
 import Planes from './javascript/Planes.js'
 import Graffiti from './javascript/Graffiti.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
@@ -118,9 +119,11 @@ const wall8 = new Walls(2,2,8,17,-3)
 secondSegment.add(wall8.group)
 
 //Circle Room
-
-const circleRoom = new CircleRoom(4,15,-11)
-secondSegment.add(circleRoom.group)
+const circleRoomGroup = new THREE.Group()
+circleRoomGroup.position.set(15,0,-11)
+secondSegment.add(circleRoomGroup)
+const circleRoom = new CircleRoom(4,0,0)
+circleRoomGroup.add(circleRoom.group)
 
 //Third Segment
 const thirdSegment = new THREE.Group()
@@ -263,15 +266,61 @@ fourthSegment.add(torch6.group)
 const torch7 = new Torch(2.90,1,-0.9,0,-Math.PI*0.5,0)
 fourthSegment.add(torch7.group)
 
+//Pillars
 
+const pillar0 = new Pillars(1,1,-12,1)
+secondSegment.add(pillar0.group)
 
+const pillar1 = new Pillars(1,1,-4,-1)
+secondSegment.add(pillar1.group)
 
-// const torch2 = new Torch2()
-// scene.add(torch2.group)
+const pillar2 = new Pillars(1,1,-4,1)
+secondSegment.add(pillar2.group)
 
+const pillar3 = new Pillars(1,1,4,-1)
+secondSegment.add(pillar3.group)
 
-const pillier = new Pillier()
-scene.add(pillier.group)
+const pillar4 = new Pillars(1,1,4,1)
+secondSegment.add(pillar4.group)
+
+const pillar5 = new Pillars(1,1,14,-1)
+secondSegment.add(pillar5.group)
+
+const pillar6 = new Pillars(2.2,2.2,1,4)
+circleRoomGroup.add(pillar6.group)
+
+const pillar7 = new Pillars(2.2,2.2,-1,4)
+circleRoomGroup.add(pillar7.group)
+
+const pillar8 = new Pillars(2.2,2.2,1,-4)
+circleRoomGroup.add(pillar8.group)
+
+const pillar9 = new Pillars(2.2,2.2,-1,-4)
+circleRoomGroup.add(pillar9.group)
+
+const pillar10 = new Pillars(1,1,1,-1)
+thirdSegment.add(pillar10.group)
+
+const pillar11 = new Pillars(1,1,1,-3)
+thirdSegment.add(pillar11.group)
+
+const pillar12 = new Pillars(1,1,11,-1)
+thirdSegment.add(pillar12.group)
+
+const pillar13 = new Pillars(1,1,1,-8)
+fourthSegment.add(pillar13.group)
+
+const pillar14 = new Pillars(1,1,-1,-8)
+fourthSegment.add(pillar14.group)
+
+const pillar15 = new Pillars(1,1,-1,4)
+fourthSegment.add(pillar15.group)
+
+const pillar16 = new Pillars(1,1,1,4)
+fourthSegment.add(pillar16.group)
+
+const pillar17 = new Pillars(1,1,1,8)
+fourthSegment.add(pillar17.group)
 
 //Add floor
 const wetFloor1 = new WetFloors(12, 12,3,0)
@@ -317,9 +366,32 @@ scene.add(camera)
  * Lights
  */
 
-const ambientLight = new THREE.AmbientLight(0xffffff, 1)
+const ambientLight = new THREE.AmbientLight(0xffffff, .3)
 scene.add(ambientLight)
 
+const torchLight1 = new TorchLight(-0.5, 1.5, -6)
+scene.add(torchLight1.group)
+
+const torchLight2 = new TorchLight(4, 1.5, -11.5)
+scene.add(torchLight2.group)
+
+const torchLight3 = new TorchLight(12.8, 1.5, -7.5)
+scene.add(torchLight3.group)
+
+const torchLight4 = new TorchLight(12.8, 1.5, -14.5)
+scene.add(torchLight4.group)
+
+const torchLight5 = new TorchLight(27, 1.5, -10)
+scene.add(torchLight5.group)
+
+const torchLight6 = new TorchLight(37.5, 1.5, -21)
+scene.add(torchLight6.group)
+
+const torchLight7 = new TorchLight(42.5, 1.5, -21)
+scene.add(torchLight7.group)
+
+// const torchLight5 = new TorchLight(27, 1.5, -10)
+// scene.add(torchLight5.group)
 
 const flashLight = new FlashLight(0, 0, 0)
 scene.add(flashLight.group)

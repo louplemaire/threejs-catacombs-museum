@@ -21,7 +21,6 @@ export default class Torch
             '/models/torch2/torch2.gltf',
             (_gltf) =>
             {
-                console.log(_gltf)
                 this.torch2 = _gltf.scene
 
                 this.torch2.scale.set(0.01, 0.01, 0.01)
