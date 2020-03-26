@@ -14,7 +14,6 @@ export default class Bones
             '/models/bones/scene.gltf',
             (_gltf) =>
             {
-                console.log(_gltf)
                 this.bones = _gltf.scene
                 this.bones.position.set(_x, _y, _z)
                 this.bones.rotation.set(_rotX,_rotY,_rotZ)

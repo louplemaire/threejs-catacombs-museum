@@ -403,14 +403,6 @@ fourthSegment.add(ceiling4.group)
 const bunkerWall = new Planes(28,-35.5)
 scene.add(bunkerWall.group)
 
-<<<<<<< HEAD
-//Add lader
-
-// const lader = new Lader(0, 0, 0)
-// scene.add(lader.group)
-
-=======
->>>>>>> 4cd80280563838772ecdcf1d962b3fe31cbcf91c
 
 /**
  * Camera

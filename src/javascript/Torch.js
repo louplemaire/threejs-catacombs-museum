@@ -11,11 +11,10 @@ export default class Torch
         const gtlfLoader = new GLTFLoader()
 
         gtlfLoader.load(
-            '/models/torchtest/scene.gltf',
+            '/models/torch/scene.gltf',
             (_gltf) =>
             {
                 this.torch = _gltf.scene
-
                 this.torch.position.set(_x, _y, _z)
                 this.torch.rotation.set(_rotationX,_rotationY,_rotationZ)
                 this.torch.scale.set(0.01, 0.01, 0.01)
