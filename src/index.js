@@ -473,38 +473,35 @@ let hoverBunkerWall = false
 let hoverBones = false
 
 document.addEventListener('click', () =>{
-    if(hoverGraffiti && canOpen){
-        popups[3].classList.remove('is-visible')
+    if(canOpen){
+        if(hoverGraffiti){
+            popups[3].classList.remove('is-visible')
 
-        paper.currentTime = 0
-        paper.play()
+            paper.currentTime = 0
+            paper.play()
 
-        popupIsClose = false
+            popupIsClose = false
+        }
+
+        if(hoverBunkerWall){
+            popups[2].classList.remove('is-visible')
+
+            paper.currentTime = 0
+            paper.play()
+
+            popupIsClose = false
+        }
+
+        if(hoverBones){
+            popups[1].classList.remove('is-visible')
+
+            paper.currentTime = 0
+            paper.play()
+
+            popupIsClose = false
+        }
     }
 })
-
-document.addEventListener('click', () =>{
-    if(hoverBunkerWall && canOpen){
-        popups[2].classList.remove('is-visible')
-
-        paper.currentTime = 0
-        paper.play()
-
-        popupIsClose = false
-    }
-})
-
-document.addEventListener('click', () =>{
-    if(hoverBones && canOpen){
-        popups[1].classList.remove('is-visible')
-
-        paper.currentTime = 0
-        paper.play()
-
-        popupIsClose = false
-    }
-})
-
 
 // Close cultural popup
 closeButtons.forEach(_closeButton => {
@@ -626,7 +623,7 @@ const loop = () => {
         const angle = cursor.x * Math.PI * 2
         camera.rotation.y = - angle * 2
     }
-    
+    console.log(popupIsClose);
     //Update flashLight coord
     flashLight.group.position.set(camera.position.x, camera.position.y, camera.position.z)
 
