@@ -7,7 +7,6 @@ import Skull from './javascript/Skull.js'
 import Bones from './javascript/Bones.js'
 import Torch from './javascript/Torch.js'
 import Pillars  from './javascript/Pillars.js'
-// import Torch2 from './javascript/Torch2.js'
 import Walls from './javascript/Walls.js'
 import Ceilings from './javascript/Ceilings.js'
 import Floors from './javascript/Floors.js'
@@ -191,7 +190,7 @@ fourthSegment.add(graffWall4.firstGroup)
 
 //Bones and skull
 
-//Group 1 BonesSkull
+// Group 1 BonesSkull
 
 const bonesSkullG1 = new THREE.Group()
 bonesSkullG1.position.set(0,0,0.5)
@@ -357,8 +356,8 @@ scene.add(bunkerWall.group)
 
 //Add lader
 
-const lader = new Lader(0, 0, 0)
-scene.add(lader.group)
+// const lader = new Lader(0, 0, 0)
+// scene.add(lader.group)
 
 
 /**
@@ -696,5 +695,17 @@ loop()
 
 window.addEventListener('load', () =>
 {
-    console.log('load')
+    document.querySelector('.loading img').style.animation = 'none'
+    document.querySelector('.loading h1').style.animation = 'loadOpacity 5s'
+
+    document.querySelector('.loading h1').addEventListener('animationend', () =>
+    {
+        document.querySelector('.loading h1').style.opacity = '1'
+        document.querySelector('.loading').style.animation = 'loadHome 1s'
+    })
+
+    window.setTimeout( () =>
+    {
+        document.querySelector('.loading').style.display = 'none'
+    },6000)
 })

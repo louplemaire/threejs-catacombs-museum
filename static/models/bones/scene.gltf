@@ -1,0 +1,303 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 65532,
+      "max": [
+        144.14207458496094,
+        103.69333648681641,
+        72.529212951660156
+      ],
+      "min": [
+        -145.90965270996094,
+        -118.36812591552734,
+        -67.367332458496094
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 786384,
+      "componentType": 5126,
+      "count": 65532,
+      "max": [
+        0.99976098537445068,
+        0.99999988079071045,
+        0.9999883770942688
+      ],
+      "min": [
+        -0.9999883770942688,
+        -0.99996626377105713,
+        -0.99997919797897339
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 65532,
+      "max": [
+        0.99682897329330444,
+        0.99715197086334229
+      ],
+      "min": [
+        0.002945000072941184,
+        0.0029780000913888216
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 358053,
+      "max": [
+        65531
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 1572768,
+      "componentType": 5126,
+      "count": 48124,
+      "max": [
+        144.48558044433594,
+        43.233257293701172,
+        67.786262512207031
+      ],
+      "min": [
+        -77.520584106445312,
+        -94.083824157714844,
+        -40.492759704589844
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 2150256,
+      "componentType": 5126,
+      "count": 48124,
+      "max": [
+        0.99998730421066284,
+        0.9989008903503418,
+        0.99997740983963013
+      ],
+      "min": [
+        -0.99996054172515869,
+        -0.99375671148300171,
+        -0.99999362230300903
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 524256,
+      "componentType": 5126,
+      "count": 48124,
+      "max": [
+        0.99689698219299316,
+        0.99617999792098999
+      ],
+      "min": [
+        0.0030700000934302807,
+        0.0029539999086409807
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 1432212,
+      "componentType": 5125,
+      "count": 247623,
+      "max": [
+        48123
+      ],
+      "min": [
+        0
+      ],
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "Bluelink Anatomy - University of Michigan (https://sketchfab.com/bluelinkanatomy)",
+      "license": "CC-BY-NC-ND-4.0 (http://creativecommons.org/licenses/by-nc-nd/4.0/)",
+      "source": "https://sketchfab.com/3d-models/humerus-right-labeled-0dd7f73b812c460db72769d6500ad447",
+      "title": "Humerus - Right, Labeled"
+    },
+    "generator": "Sketchfab-8.1.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 2422704,
+      "byteOffset": 0,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 909248,
+      "byteOffset": 2422704,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 2727744,
+      "byteOffset": 3331952,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 6059696,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/texture_baseColor.jpeg"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "emissiveFactor": [
+        0,
+        0,
+        0
+      ],
+      "name": "texture",
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "baseColorTexture": {
+          "index": 0,
+          "texCoord": 0
+        },
+        "metallicFactor": 0,
+        "roughnessFactor": 1
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 5,
+            "POSITION": 4,
+            "TEXCOORD_0": 6
+          },
+          "indices": 7,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "name": "RootNode (gltf orientation matrix)",
+      "rotation": [
+        -0.70710678118654746,
+        -0,
+        -0,
+        0.70710678118654757
+      ]
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        -0.12073879688978195,
+        -0.65147924423217773,
+        -0.7489972710609436,
+        0,
+        -0.65033531188964844,
+        -0.51813983917236328,
+        0.55551338195800781,
+        0,
+        -0.74999076128005981,
+        0.55417138338088989,
+        -0.36112037301063538,
+        0,
+        -3.6344494819641113,
+        -13.033576011657715,
+        7.0554537773132324,
+        1
+      ],
+      "name": "RootNode (model correction matrix)"
+    },
+    {
+      "children": [
+        3,
+        4
+      ],
+      "name": "humerus.obj.cleaner.materialmerger.gles"
+    },
+    {
+      "mesh": 0,
+      "name": ""
+    },
+    {
+      "mesh": 1,
+      "name": ""
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "OSG_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    }
+  ]
+}
+

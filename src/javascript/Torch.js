@@ -1,7 +1,6 @@
 import * as THREE from 'three'
 
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
-import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 
 export default class Torch
 {
@@ -9,16 +8,10 @@ export default class Torch
     {
         this.group = new THREE.Group()
 
-        const dracoLoader = new DRACOLoader()
-        dracoLoader.setDecoderPath('/draco/')
-
-        dracoLoader.preload()
-
         const gtlfLoader = new GLTFLoader()
-        gtlfLoader.setDRACOLoader(dracoLoader)
 
         gtlfLoader.load(
-            '/models/torch/torch2.gltf',
+            '/models/torchtest/scene.gltf',
             (_gltf) =>
             {
                 this.torch = _gltf.scene
