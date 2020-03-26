@@ -543,7 +543,6 @@ window.addEventListener('wheel', (_event) => {
         // Accept the scroll
         setTimeout(function() {
             canScroll = true
-            console.log(canScroll);
         }, 2000)
 
         // If we scroll down
@@ -581,8 +580,6 @@ window.addEventListener('wheel', (_event) => {
         }
     }
 })
-
-console.log(canScroll);
 
 /**
  * Renderer
@@ -623,7 +620,7 @@ const loop = () => {
         const angle = cursor.x * Math.PI * 2
         camera.rotation.y = - angle * 2
     }
-    console.log(popupIsClose);
+
     //Update flashLight coord
     flashLight.group.position.set(camera.position.x, camera.position.y, camera.position.z)
 
@@ -689,7 +686,6 @@ const loop = () => {
 }
 
 loop()
-
 
 window.addEventListener('load', () =>
 {
