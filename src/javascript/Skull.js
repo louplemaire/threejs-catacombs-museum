@@ -5,7 +5,7 @@ import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 
 export default class Skull
 {
-    constructor(_x, _y, _z)
+    constructor(_x,_y,_z,_rotX,_rotY,_rotZ,_scale)
     {
         this.group = new THREE.Group()
 
@@ -23,9 +23,8 @@ export default class Skull
             {
                 this.skull = _gltf.scene
                 this.skull.position.set(_x, _y, _z)
-                this.skull.scale.set(0.1, 0.1, 0.1)
-                this.skull.rotation.set(Math.PI, 0,0)
-
+                this.skull.rotation.set(_rotX,_rotY,_rotZ)
+                this.skull.scale.set(_scale, _scale, _scale)
                 this.group.add(this.skull)
             }
         )

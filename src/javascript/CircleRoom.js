@@ -13,10 +13,10 @@ import wallAlphaSource from '../textures/walls/alphaMap.jpg'
 const textureLoader = new THREE.TextureLoader()
 
 const wallColorTexture = textureLoader.load(wallColorSource)
-// wallColorTexture.repeat.x = 8
-// wallColorTexture.repeat.y = 2
-// wallColorTexture.wrapS = THREE.RepeatWrapping
-// wallColorTexture.wrapT = THREE.RepeatWrapping
+wallColorTexture.repeat.x = 8
+wallColorTexture.repeat.y = 2
+wallColorTexture.wrapS = THREE.RepeatWrapping
+wallColorTexture.wrapT = THREE.RepeatWrapping
 
 const wallAmbientOcclusionTexture = textureLoader.load(wallAmbientOcclusionSource)
 const wallDisplacementTexture = textureLoader.load(wallDisplacementSource)
@@ -30,7 +30,7 @@ export default class CircleRoom {
 
         const circleRoom = new THREE.Mesh(
             new THREE.SphereGeometry(_radius, 32, 32, 5.55, 1.5, 0.27, 2.6),
-            new THREE.MeshNormalMaterial({
+            new THREE.MeshStandardMaterial({
                 map: wallColorTexture,
                 aoMap: wallAmbientOcclusionTexture,
                 displacementMap: wallDisplacementTexture,

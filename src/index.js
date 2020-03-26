@@ -52,6 +52,35 @@ const $parchmentImage = new Image()
 $parchmentImage.src = parchmentImage
 $parchmentImage.setAttribute('alt', 'Parchment image')
 
+// Bunker
+import bunkerImage from './images/bunker.jpg'
+
+const bunkerImageContainer = document.querySelector('.js-bunker-image')
+const $bunkerImage = new Image()
+$bunkerImage.src = bunkerImage
+bunkerImageContainer.appendChild($bunkerImage)
+$bunkerImage.setAttribute('alt', 'bunker image')
+
+// tags
+import tagsImage from './images/tags.jpg'
+
+const tagsImageContainer = document.querySelector('.js-tags-image')
+const $tagsImage = new Image()
+$tagsImage.src = tagsImage
+tagsImageContainer.appendChild($tagsImage)
+$tagsImage.setAttribute('alt', 'tags image')
+
+// bonesSkullDescription
+import bonesSkullDescriptionImage from './images/bonesSkullDescription.jpg'
+
+const bonesSkullDescriptionImageContainer = document.querySelector('.js-bonesSkullDescription-image')
+const $bonesSkullDescriptionImage = new Image()
+$bonesSkullDescriptionImage.src = bonesSkullDescriptionImage
+bonesSkullDescriptionImageContainer.appendChild($bonesSkullDescriptionImage)
+$bonesSkullDescriptionImage.setAttribute('alt', 'bonesSkullDescription image')
+
+
+
 /**
  * Sizes
  */
@@ -89,6 +118,9 @@ const scene = new THREE.Scene()
 const firstSegment = new THREE.Group()
 firstSegment.position.set(0,0,-6)
 scene.add(firstSegment)
+
+const wall0 = new Walls(2,2,2,0,6)
+firstSegment.add(wall0.group)
 
 const wall1 = new Walls(8,2,10,5,1)
 firstSegment.add(wall1.group)
@@ -208,6 +240,12 @@ bonesSkullG1.add(bonesG1_3.group)
 const bonesG1_4 = new Bones(-2.01,0.02,-2.5,0,Math.PI*0.2,Math.PI*0.55,0.0015)
 bonesSkullG1.add(bonesG1_4.group)
 
+const skull1 = new Skull(2.25,0,-1.9,Math.PI,Math.PI*0.35,0,0.01)
+bonesSkullG1.add(skull1.group)
+
+const skull2 = new Skull(1.78,0,1.9,Math.PI,Math.PI*0.65,0,0.01)
+bonesSkullG1.add(skull2.group)
+
 //Group 2 BonesSkull
 
 const bonesSkullG2 = new THREE.Group()
@@ -217,34 +255,37 @@ thirdSegment.add(bonesSkullG2)
 const bonesG2_1 = new Bones(2,0.04,2,Math.PI*0.5,0,-Math.PI*0.6,0.003)
 bonesSkullG2.add(bonesG2_1.group)
 
+const skull3 = new Skull(2.2,0,2.5,Math.PI,Math.PI*0.8,0,0.04)
+circleRoomGroup.add(skull3.group)
+
 //Group 3 BonesSkull
 
 const bonesSkullG3 = new THREE.Group()
 bonesSkullG3.position.set(0,0.05,-2)
 fourthSegment.add(bonesSkullG3)
 
-const bonesG3_1 = new Bones(2,0.04,4,Math.PI*0.5,0,-Math.PI*0.6,0.003)
+const bonesG3_1 = new Bones(2,0.04,4,Math.PI*0.5,0,-Math.PI*0.6,0.002)
 bonesSkullG3.add(bonesG3_1.group)
 
-const bonesG3_2 = new Bones(2,0.04,1,Math.PI*0.5,0,-Math.PI*0.6,0.003)
+const bonesG3_2 = new Bones(2,0.04,1,Math.PI*0.5,0,-Math.PI*0.6,0.002)
 bonesSkullG3.add(bonesG3_2.group)
 
-const bonesG3_3 = new Bones(2,0.04,-2,Math.PI*0.5,0,-Math.PI*0.6,0.003)
+const bonesG3_3 = new Bones(2,0.04,-2,Math.PI*0.5,0,-Math.PI*0.6,0.002)
 bonesSkullG3.add(bonesG3_3.group)
 
-const bonesG3_4 = new Bones(-2,0.04,4,Math.PI*0.5,0,-Math.PI*0.6,0.003)
+const bonesG3_4 = new Bones(-2,0.04,4,Math.PI*0.5,0,-Math.PI*0.6,0.002)
 bonesSkullG3.add(bonesG3_4.group)
 
-const bonesG3_5 = new Bones(-2,0.04,1,Math.PI*0.5,0,-Math.PI*0.6,0.003)
+const bonesG3_5 = new Bones(-2,0.04,1,Math.PI*0.5,0,-Math.PI*0.6,0.002)
 bonesSkullG3.add(bonesG3_5.group)
 
-const bonesG3_6 = new Bones(-2,0.04,-2,Math.PI*0.5,0,-Math.PI*0.6,0.003)
+const bonesG3_6 = new Bones(-2,0.04,-2,Math.PI*0.5,0,-Math.PI*0.6,0.002)
 bonesSkullG3.add(bonesG3_6.group)
 
+const skull4 = new Skull(0.8,0,-13.8,Math.PI,Math.PI*0.2,0,0.01)
+fourthSegment.add(skull4.group)
 
-const skull = new Skull(0, 5, 0)
-bonesSkullG1.add(skull.group)
-
+//Torchs
 
 const torch1 = new Torch(-0.91,1,0,0,Math.PI*0.5,0)
 firstSegment.add(torch1.group)
@@ -266,6 +307,14 @@ fourthSegment.add(torch6.group)
 
 const torch7 = new Torch(2.90,1,-0.9,0,-Math.PI*0.5,0)
 fourthSegment.add(torch7.group)
+
+//Ladders
+
+const ladderEntry = new Lader(0.1,0,4.7,Math.PI*0.5,0,0)
+firstSegment.add(ladderEntry.group)
+
+const ladderExit = new Lader(8.5,0,9.1,Math.PI*0.5,-Math.PI*0.5, Math.PI*0.5)
+fourthSegment.add(ladderExit.group)
 
 //Pillars
 
@@ -354,11 +403,14 @@ fourthSegment.add(ceiling4.group)
 const bunkerWall = new Planes(28,-35.5)
 scene.add(bunkerWall.group)
 
+<<<<<<< HEAD
 //Add lader
 
 // const lader = new Lader(0, 0, 0)
 // scene.add(lader.group)
 
+=======
+>>>>>>> 4cd80280563838772ecdcf1d962b3fe31cbcf91c
 
 /**
  * Camera
@@ -438,7 +490,6 @@ let popupIsClose = false
 // Start buton
 const startButton = document.querySelector(".js-start-button")
 const landingPage = document.querySelector(".landing")
-const closeButtons = document.querySelectorAll('.js-close-button')
 const popups = document.querySelectorAll('.js-popup-information')
 
 startButton.addEventListener('click', () => {
@@ -472,50 +523,45 @@ let hoverBunkerWall = false
 let hoverBones = false
 
 document.addEventListener('click', () =>{
-    if(hoverGraffiti && canOpen){
-        popups[3].classList.remove('is-visible')
-
-        paper.currentTime = 0
-        paper.play()
-
-        popupIsClose = false
-    }
-})
-
-document.addEventListener('click', () =>{
-    if(hoverBunkerWall && canOpen){
-        popups[2].classList.remove('is-visible')
-
-        paper.currentTime = 0
-        paper.play()
-
-        popupIsClose = false
-    }
-})
-
-document.addEventListener('click', () =>{
-    if(hoverBones && canOpen){
-        popups[1].classList.remove('is-visible')
-
-        paper.currentTime = 0
-        paper.play()
-
-        popupIsClose = false
-    }
-})
-
-
-// Close cultural popup
-closeButtons.forEach(_closeButton => {
-    _closeButton.addEventListener('click', () => {
-        popups.forEach(_popup => {
-            _popup.classList.add('is-visible')
+    if(canOpen){
+        if(hoverGraffiti){
+            popups[3].classList.remove('is-visible')
 
             paper.currentTime = 0
             paper.play()
-        })
-        popupIsClose = true
+
+            popupIsClose = false
+        }
+
+        if(hoverBunkerWall){
+            popups[2].classList.remove('is-visible')
+
+            paper.currentTime = 0
+            paper.play()
+
+            popupIsClose = false
+        }
+
+        if(hoverBones){
+            popups[1].classList.remove('is-visible')
+
+            paper.currentTime = 0
+            paper.play()
+
+            popupIsClose = false
+        }
+    }
+})
+
+// Close cultural popup
+window.addEventListener('keydown', (_event) => {
+    popups.forEach(_popup => {
+        _popup.classList.add('is-visible')
+
+        paper.currentTime = 0
+        paper.play()
     })
+    popupIsClose = true
 })
 
 /**
@@ -524,20 +570,15 @@ closeButtons.forEach(_closeButton => {
 const tl = new TimelineLite()
 tl.pause()
 
-// tl.to(camera.rotation, 2, {y: Math.PI * 2, ease: 'Power3.easeInOut'})
-tl.to(camera.position, 2, {z: - 11, ease: 'Power3.easeInOut'})
-// .to(camera.rotation, 2, {y: Math.PI * 1.5, ease: 'Power3.easeInOut'})
+tl.to(camera.position, 2, {z: - 8, ease: 'Power3.easeInOut'})
+.to(camera.position, 2, {z: - 11, ease: 'Power3.easeInOut'})
 .to(camera.position, 2, {x: 10, ease: 'Power3.easeInOut'})
 .to(camera.position, 2, {x: 28, ease: 'Power3.easeInOut'})
-// .to(camera.rotation, 2, {y: Math.PI * 2, ease: 'Power3.easeInOut'})
 .to(camera.position, 2, {z: - 20, ease: 'Power3.easeInOut'})
 .to(camera.position, 2, {z: - 33, ease: 'Power3.easeInOut'})
-// .to(camera.rotation, 2, {y: Math.PI * 1.5, ease: 'Power3.easeInOut'})
 .to(camera.position, 2, {x: 40, ease: 'Power3.easeInOut'})
-// .to(camera.rotation, 2, {y: Math.PI, ease: 'Power3.easeInOut'})
 .to(camera.position, 2, {z: - 26, ease: 'Power3.easeInOut'})
 .to(camera.position, 2, {z: - 11, ease: 'Power3.easeInOut'})
-// .to(camera.rotation, 2, {y: Math.PI * 1.5, ease: 'Power3.easeInOut'})
 .to(camera.position, 2, {x: 46, ease: 'Power3.easeInOut'})
 
 window.addEventListener('wheel', (_event) => {
@@ -545,7 +586,6 @@ window.addEventListener('wheel', (_event) => {
         // Accept the scroll
         setTimeout(function() {
             canScroll = true
-            console.log(canScroll);
         }, 2000)
 
         // If we scroll down
@@ -583,8 +623,6 @@ window.addEventListener('wheel', (_event) => {
         }
     }
 })
-
-console.log(canScroll);
 
 /**
  * Renderer
@@ -625,7 +663,7 @@ const loop = () => {
         const angle = cursor.x * Math.PI * 2
         camera.rotation.y = - angle * 2
     }
-    
+
     //Update flashLight coord
     flashLight.group.position.set(camera.position.x, camera.position.y, camera.position.z)
 
@@ -691,7 +729,6 @@ const loop = () => {
 }
 
 loop()
-
 
 window.addEventListener('load', () =>
 {

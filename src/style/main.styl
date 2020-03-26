@@ -145,38 +145,37 @@ body
  */
 .popup-information
     position absolute
-    top 30%
+    top 5%
     left 50%
     transform translateX(-50%)
     width 65vw
     height 100vh
-    border-radius 5px
     background-image url('../images/parchment.png')
     background-repeat no-repeat
     background-position top left
-    z-index 100
+    z-index 10
     .text
         padding 80px 200px 20px 200px
-        .close-button
+        span
             text-decoration none
             font-family $font-title
             font-size $font-size-text
             color #000000
-            will-change opacity
-            &:hover
-                opacity 0.6
-                transition 0.3s
-                transition-timing-function ease-in-out
         h2
             margin 40px 0px 20px 0px
             font-family $font-title
             font-size $font-size-subtitle
+            width 80%
+            font-size 35px
         p
             width 40vw
             margin-bottom 10px
             font-family $font-text
             font-size $font-size-text
             line-height 24px
+    img
+        width 20vw
+        height auto
 
 .is-visible
     display none
