@@ -301,8 +301,8 @@ const ceiling4 = new Ceilings(18,14,3,3)
 fourthSegment.add(ceiling4.group)
 
 //Add plane
-const plane = new Planes(28,-35.5)
-scene.add(plane.group)
+const bunkerWall = new Planes(28,-35.5)
+scene.add(bunkerWall.group)
 
 
 /**
@@ -340,27 +340,70 @@ const music = new Audio(ambientMusic)
 music.volume = 0.2
 
 /**
+ * Raycaster
+ */
+const raycaster = new THREE.Raycaster()
+
+/**
  * Buttons
  */
+// Block the scroll
+let canScroll = false
+// Block open popups
+let canOpen = false
+
 // Start buton
 const startButton = document.querySelector(".js-start-button")
 const landingPage = document.querySelector(".landing")
+const closeButtons = document.querySelectorAll('.js-close-button')
+const popups = document.querySelectorAll('.js-popup-information')
 
 startButton.addEventListener('click', () => {
+    // Start
     landingPage.style.opacity = 0
     landingPage.classList.add('is-visible')
+
+    // Play sound
     sound.play()
     sound.loop = true
     music.play()
     music.loop = true
+
+    // Open welcome popup
+    popups[0].classList.remove('is-visible')
+
+    // Active the scroll
+    canScroll = true
+
+    // Active open popups
+    canOpen = true
 })
 
 // Open cultural popup
+let hoverGraffiti = false
+let hoverBunkerWall = false
+let hoverBones = false
+
+document.addEventListener('click', () =>{
+    if(hoverGraffiti && canOpen){
+        popups[3].classList.remove('is-visible')
+    }
+})
+
+document.addEventListener('click', () =>{
+    if(hoverBunkerWall && canOpen){
+        popups[2].classList.remove('is-visible')
+    }
+})
+
+document.addEventListener('click', () =>{
+    if(hoverBones && canOpen){
+        popups[1].classList.remove('is-visible')
+    }
+})
+
 
 // Close cultural popup
-const closeButtons = document.querySelectorAll('.js-close-button')
-const popups = document.querySelectorAll('.js-popup-information')
-
 closeButtons.forEach(_closeButton => {
     _closeButton.addEventListener('click', () => {
         popups.forEach(_popup => {
@@ -372,9 +415,6 @@ closeButtons.forEach(_closeButton => {
 /**
  * Scroll
  **/
-// Block the scroll
-let canScroll = true
-
 const tl = new TimelineLite()
 tl.pause()
 
@@ -482,6 +522,61 @@ const loop = () => {
     flashLight.group.position.set(camera.position.x, camera.position.y, camera.position.z)
 
     // cameraControls.update()
+
+    // Cursor raycasting
+    // Graffiti
+    if(Graffiti){
+        const raycasterCursor = new THREE.Vector2(cursor.x * 2, - cursor.y * 2)
+        raycaster.setFromCamera(raycasterCursor, camera)
+
+        const graff1Intersects = raycaster.intersectObject(graffWall1.fourGroup, true)
+        const graff2Intersects = raycaster.intersectObject(graffWall2.thirdGroup, true)
+        const graff3Intersects = raycaster.intersectObject(graffWall3.secondGroup, true)
+        const graff4Intersects = raycaster.intersectObject(graffWall4.firstGroup, true)
+        if(graff1Intersects.length){
+            hoverGraffiti = true
+        } else if(graff2Intersects.length){
+            hoverGraffiti = true
+        } else if(graff3Intersects.length){
+            hoverGraffiti = true
+        } else if(graff4Intersects.length){
+            hoverGraffiti = true
+        } else{
+            hoverGraffiti = false
+        }
+    }
+
+    // Bunker wall
+    if(bunkerWall){
+        const raycasterCursor = new THREE.Vector2(cursor.x * 2, - cursor.y * 2)
+        raycaster.setFromCamera(raycasterCursor, camera)
+
+        const bunkerWallIntersects = raycaster.intersectObject(bunkerWall.group, true)
+        if(bunkerWallIntersects.length){
+            hoverBunkerWall = true
+        } else{
+            hoverBunkerWall = false
+        }
+    }
+    
+    // Bones
+    if(bonesSkullG1){
+        const raycasterCursor = new THREE.Vector2(cursor.x * 2, - cursor.y * 2)
+        raycaster.setFromCamera(raycasterCursor, camera)
+
+        const bones1Intersects = raycaster.intersectObject(bonesSkullG1, true)
+        const bones2Intersects = raycaster.intersectObject(bonesSkullG2, true)
+        const bones3Intersects = raycaster.intersectObject(bonesSkullG3, true)
+        if(bones1Intersects.length){
+            hoverBones = true
+        } else if(bones2Intersects.length){
+            hoverBones = true
+        } else if(bones3Intersects.length){
+            hoverBones = true
+        } else{
+            hoverBones = false
+        }
+    }
 
     // Render
     renderer.render(scene, camera)
