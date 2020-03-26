@@ -17,7 +17,7 @@ import Planes from './javascript/Planes.js'
 import Graffiti from './javascript/Graffiti.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import CircleRoom from './javascript/CircleRoom.js'
-// import { TweenLite } from 'gsap/all'
+import { TweenLite, TimelineLite } from 'gsap/all'
 
 /**
  * Images
@@ -297,7 +297,8 @@ scene.add(plane.group)
  * Camera
  */
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 30)
-camera.position.set(0,2,5)
+camera.position.set(0,1.5,-2)
+camera.rotation.y = Math.PI
 scene.add(camera)
 
 /**
@@ -313,101 +314,6 @@ scene.add(flashLight.group)
 // const directionalLight = new THREE.DirectionalLight(0x00fffc, 0.3)
 // directionalLight.position.set(0,1,1)
 // scene.add(directionalLight)
-
-
-/**
- * Renderer
- */
-const renderer = new THREE.WebGLRenderer()
-renderer.setSize(sizes.width, sizes.height)
-renderer.setPixelRatio(window.devicePixelRatio)
-document.body.appendChild(renderer.domElement)
-
-/* 
-    Orbits Controls
-*/
-const cameraControls = new OrbitControls(camera, renderer.domElement)
-cameraControls.zoomSpeed = 0.3
-cameraControls.enableDamping = true
-
-/**
- * Resize
- */
-window.addEventListener('resize', () =>{
-    sizes.width = window.innerWidth
-    sizes.height = window.innerHeight
-
-    camera.aspect = sizes.width / sizes.height
-    camera.updateProjectionMatrix()
-
-    renderer.setSize(sizes.width, sizes.height)
-})
-
-/**
- * Loop
- */
-const loop = () => {
-    window.requestAnimationFrame(loop)
-
-    // Camera
-    // camera.position.x = cursor.x * 5
-    // camera.position.y = - cursor.y * 5
-
-    // const angle = cursor.x * Math.PI * 2
-
-    // camera.position.x = Math.cos(angle) * 3
-    // camera.position.z = Math.sin(angle) * 3
-    // camera.position.y = cursor.y * 5
-
-    // camera.lookAt(scene.position)
-    
-    //Update flashLight coord
-    flashLight.group.position.set(camera.position.x, camera.position.y, camera.position.z)
-
-    cameraControls.update()
-
-
-    // Render
-    renderer.render(scene, camera)
-}
-
-loop()
-
-/**
- * Movement
- */
-
-const movement = () => 
-{
-    window.addEventListener('keydown', (e) =>
-    {
-        if (e.keyCode == 90) // w
-        {
-            camera.position.z -= 0.2
-        }
-        if (e.keyCode == 81) // q
-        {
-            camera.position.x -= 0.2
-        }
-        if (e.keyCode == 83) // s
-        {
-            camera.position.z += 0.2
-        }
-        if (e.keyCode == 68) // d
-        {
-            camera.position.x += 0.2
-        }
-        if (e.keyCode == 65) // a
-        {
-            camera.rotation.y += Math.PI*0.05
-        }
-        if (e.keyCode == 69) // e
-        {
-            camera.rotation.y -= Math.PI*0.05
-        }
-    })
-}
-movement()
 
 /**
  * Buttons
@@ -434,3 +340,157 @@ closeButtons.forEach(_closeButton => {
         })
     })
 })
+
+/**
+ * Scroll
+ **/
+// Block the scroll
+let canScroll = true
+
+const tl = new TimelineLite()
+tl.pause()
+
+// tl.to(camera.rotation, 2, {y: Math.PI * 2, ease: 'Power3.easeInOut'})
+tl.to(camera.position, 2, {z: - 11, ease: 'Power3.easeInOut'})
+// .to(camera.rotation, 2, {y: Math.PI * 1.5, ease: 'Power3.easeInOut'})
+.to(camera.position, 2, {x: 10, ease: 'Power3.easeInOut'})
+.to(camera.position, 2, {x: 28, ease: 'Power3.easeInOut'})
+// .to(camera.rotation, 2, {y: Math.PI * 2, ease: 'Power3.easeInOut'})
+.to(camera.position, 2, {z: - 20, ease: 'Power3.easeInOut'})
+.to(camera.position, 2, {z: - 33, ease: 'Power3.easeInOut'})
+// .to(camera.rotation, 2, {y: Math.PI * 1.5, ease: 'Power3.easeInOut'})
+.to(camera.position, 2, {x: 40, ease: 'Power3.easeInOut'})
+// .to(camera.rotation, 2, {y: Math.PI, ease: 'Power3.easeInOut'})
+.to(camera.position, 2, {z: - 26, ease: 'Power3.easeInOut'})
+.to(camera.position, 2, {z: - 11, ease: 'Power3.easeInOut'})
+// .to(camera.rotation, 2, {y: Math.PI * 1.5, ease: 'Power3.easeInOut'})
+.to(camera.position, 2, {x: 46, ease: 'Power3.easeInOut'})
+
+window.addEventListener('wheel', (_event) => {
+    if(canScroll){
+        // Accept the scroll
+        setTimeout(function() {
+            canScroll = true
+            console.log(canScroll);
+        }, 2000)
+
+        // If we scroll down
+        if(_event.deltaY > 0)
+        {
+            tl.play()
+            console.log("play");
+
+            // Block the scroll
+            canScroll = false
+
+            // Block animation
+            setTimeout(function() {
+                tl.pause()
+                console.log("pause");
+            }, 2000)
+        }
+
+        // If we scroll up
+        if(_event.deltaY < 0)
+        {
+            tl.reverse()
+            console.log("reverse");
+
+            // Block the scroll
+            canScroll = false
+
+            // Block animation
+            setTimeout(function() {
+                tl.pause()
+                console.log("pause");
+            }, 2000)
+        }
+    }
+})
+
+console.log(canScroll);
+
+/**
+ * Renderer
+ */
+const renderer = new THREE.WebGLRenderer()
+renderer.setSize(sizes.width, sizes.height)
+renderer.setPixelRatio(window.devicePixelRatio)
+document.body.appendChild(renderer.domElement)
+
+/* 
+    Orbits Controls
+*/
+// const cameraControls = new OrbitControls(camera, renderer.domElement)
+// cameraControls.zoomSpeed = 0.3
+// cameraControls.enableDamping = true
+
+/**
+ * Resize
+ */
+window.addEventListener('resize', () =>{
+    sizes.width = window.innerWidth
+    sizes.height = window.innerHeight
+
+    camera.aspect = sizes.width / sizes.height
+    camera.updateProjectionMatrix()
+
+    renderer.setSize(sizes.width, sizes.height)
+})
+
+/**
+ * Loop
+ */
+const loop = () => {
+    window.requestAnimationFrame(loop)
+
+    // Camera
+    const angle = cursor.x * Math.PI * 2
+    camera.rotation.y = - angle * 2
+    
+    //Update flashLight coord
+    flashLight.group.position.set(camera.position.x, camera.position.y, camera.position.z)
+
+    // cameraControls.update()
+
+    // Render
+    renderer.render(scene, camera)
+}
+
+loop()
+
+/**
+ * Movement
+ */
+
+// const movement = () => 
+// {
+//     window.addEventListener('keydown', (e) =>
+//     {
+//         if (e.keyCode == 90) // w
+//         {
+//             camera.position.z -= 0.2
+//         }
+//         if (e.keyCode == 81) // q
+//         {
+//             camera.position.x -= 0.2
+//         }
+//         if (e.keyCode == 83) // s
+//         {
+//             camera.position.z += 0.2
+//         }
+//         if (e.keyCode == 68) // d
+//         {
+//             camera.position.x += 0.2
+//         }
+//         if (e.keyCode == 65) // a
+//         {
+//             camera.rotation.y += Math.PI*0.05
+//         }
+//         if (e.keyCode == 69) // e
+//         {
+//             camera.rotation.y -= Math.PI*0.05
+//         }
+//     })
+// }
+// movement()
