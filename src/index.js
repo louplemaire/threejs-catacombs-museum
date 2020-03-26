@@ -6,7 +6,7 @@ import * as THREE from 'three'
 import Skull from './javascript/Skull.js'
 import Bones from './javascript/Bones.js'
 import Torch from './javascript/Torch.js'
-import Pillier from './javascript/Pillier.js'
+import Pillars  from './javascript/Pillars.js'
 // import Torch2 from './javascript/Torch2.js'
 import Walls from './javascript/Walls.js'
 import Ceilings from './javascript/Ceilings.js'
@@ -19,6 +19,9 @@ import Graffiti from './javascript/Graffiti.js'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import CircleRoom from './javascript/CircleRoom.js'
 import { TweenLite, TimelineLite } from 'gsap/all'
+import walkSound from './audios/walk-sound.mp3'
+import ambientSound from './audios/ambient-sound.mp3'
+import ambientMusic from './audios/music.mp3'
 
 /**
  * Images
@@ -116,9 +119,11 @@ const wall8 = new Walls(2,2,8,17,-3)
 secondSegment.add(wall8.group)
 
 //Circle Room
-
-const circleRoom = new CircleRoom(4,15,-11)
-secondSegment.add(circleRoom.group)
+const circleRoomGroup = new THREE.Group()
+circleRoomGroup.position.set(15,0,-11)
+secondSegment.add(circleRoomGroup)
+const circleRoom = new CircleRoom(4,0,0)
+circleRoomGroup.add(circleRoom.group)
 
 //Third Segment
 const thirdSegment = new THREE.Group()
@@ -261,15 +266,61 @@ fourthSegment.add(torch6.group)
 const torch7 = new Torch(2.90,1,-0.9,0,-Math.PI*0.5,0)
 fourthSegment.add(torch7.group)
 
+//Pillars
 
+const pillar0 = new Pillars(1,1,-12,1)
+secondSegment.add(pillar0.group)
 
+const pillar1 = new Pillars(1,1,-4,-1)
+secondSegment.add(pillar1.group)
 
-// const torch2 = new Torch2()
-// scene.add(torch2.group)
+const pillar2 = new Pillars(1,1,-4,1)
+secondSegment.add(pillar2.group)
 
+const pillar3 = new Pillars(1,1,4,-1)
+secondSegment.add(pillar3.group)
 
-const pillier = new Pillier()
-scene.add(pillier.group)
+const pillar4 = new Pillars(1,1,4,1)
+secondSegment.add(pillar4.group)
+
+const pillar5 = new Pillars(1,1,14,-1)
+secondSegment.add(pillar5.group)
+
+const pillar6 = new Pillars(2.2,2.2,1,4)
+circleRoomGroup.add(pillar6.group)
+
+const pillar7 = new Pillars(2.2,2.2,-1,4)
+circleRoomGroup.add(pillar7.group)
+
+const pillar8 = new Pillars(2.2,2.2,1,-4)
+circleRoomGroup.add(pillar8.group)
+
+const pillar9 = new Pillars(2.2,2.2,-1,-4)
+circleRoomGroup.add(pillar9.group)
+
+const pillar10 = new Pillars(1,1,1,-1)
+thirdSegment.add(pillar10.group)
+
+const pillar11 = new Pillars(1,1,1,-3)
+thirdSegment.add(pillar11.group)
+
+const pillar12 = new Pillars(1,1,11,-1)
+thirdSegment.add(pillar12.group)
+
+const pillar13 = new Pillars(1,1,1,-8)
+fourthSegment.add(pillar13.group)
+
+const pillar14 = new Pillars(1,1,-1,-8)
+fourthSegment.add(pillar14.group)
+
+const pillar15 = new Pillars(1,1,-1,4)
+fourthSegment.add(pillar15.group)
+
+const pillar16 = new Pillars(1,1,1,4)
+fourthSegment.add(pillar16.group)
+
+const pillar17 = new Pillars(1,1,1,8)
+fourthSegment.add(pillar17.group)
 
 //Add floor
 const wetFloor1 = new WetFloors(12, 12,3,0)
@@ -349,6 +400,18 @@ scene.add(flashLight.group)
 // scene.add(directionalLight)
 
 /**
+ * Sounds
+ */
+const walk = new Audio(walkSound)
+walk.volume = 0.6
+
+const sound = new Audio(ambientSound)
+sound.volume = 1
+
+const music = new Audio(ambientMusic)
+music.volume = 0.2
+
+/**
  * Buttons
  */
 // Start buton
@@ -358,6 +421,10 @@ const landingPage = document.querySelector(".landing")
 startButton.addEventListener('click', () => {
     landingPage.style.opacity = 0
     landingPage.classList.add('is-visible')
+    sound.play()
+    sound.loop = true
+    music.play()
+    music.loop = true
 })
 
 // Open cultural popup
@@ -411,7 +478,8 @@ window.addEventListener('wheel', (_event) => {
         if(_event.deltaY > 0)
         {
             tl.play()
-            console.log("play");
+            walk.currentTime = 0
+            walk.play()
 
             // Block the scroll
             canScroll = false
@@ -419,7 +487,7 @@ window.addEventListener('wheel', (_event) => {
             // Block animation
             setTimeout(function() {
                 tl.pause()
-                console.log("pause");
+                walk.pause()
             }, 2000)
         }
 
@@ -427,15 +495,16 @@ window.addEventListener('wheel', (_event) => {
         if(_event.deltaY < 0)
         {
             tl.reverse()
-            console.log("reverse");
-
+            walk.currentTime = 0
+            walk.play()
+            
             // Block the scroll
             canScroll = false
 
             // Block animation
             setTimeout(function() {
                 tl.pause()
-                console.log("pause");
+                walk.pause()
             }, 2000)
         }
     }

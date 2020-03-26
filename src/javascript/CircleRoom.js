@@ -46,7 +46,7 @@ export default class CircleRoom {
         circleRoom.rotation.set(Math.PI * 0.5, 0, 0)
 
         const circleRoomOposite = circleRoom.clone()
-        circleRoomOposite.position.x = circleRoom.position.x + 0.25
+        circleRoomOposite.position.x = circleRoom.position.x + 0.1
         circleRoomOposite.rotation.y = Math.PI
 
         this.group.add(circleRoom, circleRoomOposite)
