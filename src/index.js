@@ -182,6 +182,9 @@ fourthSegment.add(graffWall4.firstGroup)
 //Models
 
 //Bones and skull
+
+//Group 1 BonesSkull
+
 const bonesSkullG1 = new THREE.Group()
 bonesSkullG1.position.set(0,0,0.5)
 secondSegment.add(bonesSkullG1)
@@ -198,12 +201,16 @@ bonesSkullG1.add(bonesG1_3.group)
 const bonesG1_4 = new Bones(-2.01,0.02,-2.5,0,Math.PI*0.2,Math.PI*0.55,0.0015)
 bonesSkullG1.add(bonesG1_4.group)
 
+//Group 2 BonesSkull
+
 const bonesSkullG2 = new THREE.Group()
 bonesSkullG2.position.set(0,0,5)
 thirdSegment.add(bonesSkullG2)
 
 const bonesG2_1 = new Bones(2,0.04,2,Math.PI*0.5,0,-Math.PI*0.6,0.003)
 bonesSkullG2.add(bonesG2_1.group)
+
+//Group 3 BonesSkull
 
 const bonesSkullG3 = new THREE.Group()
 bonesSkullG3.position.set(0,0.05,-2)
