@@ -504,16 +504,14 @@ document.addEventListener('click', () =>{
 })
 
 // Close cultural popup
-closeButtons.forEach(_closeButton => {
-    _closeButton.addEventListener('click', () => {
-        popups.forEach(_popup => {
-            _popup.classList.add('is-visible')
+window.addEventListener('keydown', (_event) => {
+    popups.forEach(_popup => {
+        _popup.classList.add('is-visible')
 
-            paper.currentTime = 0
-            paper.play()
-        })
-        popupIsClose = true
+        paper.currentTime = 0
+        paper.play()
     })
+    popupIsClose = true
 })
 
 /**
