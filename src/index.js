@@ -254,6 +254,15 @@ secondSegment.add(torch4.group)
 const torch5 = new Torch(14,1,0.9,0,Math.PI,0)
 secondSegment.add(torch5.group)
 
+const torch6 = new Torch(-2.90,1,-0.9,0,Math.PI*0.5,0)
+fourthSegment.add(torch6.group)
+
+const torch7 = new Torch(2.90,1,-0.9,0,-Math.PI*0.5,0)
+fourthSegment.add(torch7.group)
+
+
+
+
 // const torch2 = new Torch2()
 // scene.add(torch2.group)
 
@@ -458,39 +467,3 @@ const loop = () => {
 }
 
 loop()
-
-/**
- * Movement
- */
-
-// const movement = () => 
-// {
-//     window.addEventListener('keydown', (e) =>
-//     {
-//         if (e.keyCode == 90) // w
-//         {
-//             camera.position.z -= 0.2
-//         }
-//         if (e.keyCode == 81) // q
-//         {
-//             camera.position.x -= 0.2
-//         }
-//         if (e.keyCode == 83) // s
-//         {
-//             camera.position.z += 0.2
-//         }
-//         if (e.keyCode == 68) // d
-//         {
-//             camera.position.x += 0.2
-//         }
-//         if (e.keyCode == 65) // a
-//         {
-//             camera.rotation.y += Math.PI*0.05
-//         }
-//         if (e.keyCode == 69) // e
-//         {
-//             camera.rotation.y -= Math.PI*0.05
-//         }
-//     })
-// }
-// movement()
