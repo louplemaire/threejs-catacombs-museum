@@ -92,7 +92,7 @@ body
  */
 .popup-information
     position absolute
-    top 10%
+    top 5%
     left 50%
     transform translateX(-50%)
     width 65vw
@@ -102,19 +102,13 @@ body
     background-repeat no-repeat
     background-position top left
     z-index 10
-    padding 10px
     .text
         padding 80px 200px 20px 200px
-        .close-button
+        span
             text-decoration none
             font-family $font-title
             font-size $font-size-text
             color #000000
-            will-change opacity
-            &:hover
-                opacity 0.6
-                transition 0.3s
-                transition-timing-function ease-in-out
         h2
             margin 40px 0px 20px 0px
             font-family $font-title
@@ -126,15 +120,7 @@ body
             margin-bottom 10px
             font-family $font-text
             font-size $font-size-text
-            font-size 25px
             line-height 24px
-        a
-            position: absolute
-            top 15%
-            left 75%
-            font-size 45px
-            font-weight bold 
-            
 
 .is-visible
     display none
