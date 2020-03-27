@@ -1,7 +1,3 @@
-/* 
- * Textures
-*/
-
 import pillarColorSource from '../textures/pillars/color.jpg'
 import pillarAmbientOcclusionSource from '../textures/pillars/ambientOcclusion.jpg'
 import pillarDisplacementSource from '../textures/pillars/displacement.jpg'
@@ -32,21 +28,16 @@ export default class Pillars {
     constructor(_radiusTop,_radiusBottom,_x,_z){
         this.group = new THREE.Group()
 
-        // Material
-
-        const material1 = new THREE.MeshStandardMaterial
-        (
-            {
-                map: pillarColorTexture,
-                aoMap: pillarAmbientOcclusionTexture,
-                displacementMap: pillarDisplacementTexture,
-                displacementScale: 0.1,
-                roughnessMap: pillarRoughnessTexture,
-                roughness: 0.5,
-                alphaMap: pillarAlphaTexture,
-                normalMap: pillarNormalTexture
-            }
-        )
+        const material1 = new THREE.MeshStandardMaterial({
+            map: pillarColorTexture,
+            aoMap: pillarAmbientOcclusionTexture,
+            displacementMap: pillarDisplacementTexture,
+            displacementScale: 0.1,
+            roughnessMap: pillarRoughnessTexture,
+            roughness: 0.5,
+            alphaMap: pillarAlphaTexture,
+            normalMap: pillarNormalTexture
+        })
 
         const pillar = new THREE.Mesh(
             new THREE.CylinderGeometry(_radiusTop*0.1,_radiusBottom*0.1, 2.2 , 40 , 40 ),

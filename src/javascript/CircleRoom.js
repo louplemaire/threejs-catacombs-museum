@@ -1,8 +1,4 @@
-/**
- * CircleRoom
- */
 import * as THREE from 'three'
-
 import wallColorSource from '../textures/walls/color.jpg'
 import wallAmbientOcclusionSource from '../textures/walls/ambientOcclusion.jpg'
 import wallDisplacementSource from '../textures/walls/displacement.jpg'

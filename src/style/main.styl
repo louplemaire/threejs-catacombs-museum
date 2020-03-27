@@ -31,6 +31,54 @@ body
     height 100%
     overflow hidden
 
+/** 
+ * Loading
+ */
+.loading
+    position absolute
+    width 100vw
+    height 100vh
+    display flex
+    justify-content center
+    align-items center
+    flex-direction column
+    background #000
+    z-index 100
+    img
+        width 30vw
+        animation load 1s infinite
+        transition 1s
+    h1
+        font-family $font-title
+        color $primary-color
+        font-size 3rem
+        opacity 0
+
+@keyframes load{
+  from{
+    transform: rotate(0)
+  }
+  to{
+    transform: rotate(360deg)
+  }
+}
+@keyframes loadOpacity{
+  from{
+    opacity 0
+  }
+  to{
+    opacity 1
+  }
+}
+@keyframes loadHome{
+  from{
+    opacity 1
+  }
+  to{
+    opacity 0
+  }
+}
+
 /**
  * Landing
  */

@@ -5,21 +5,16 @@ import './style/main.styl'
 import * as THREE from 'three'
 import Skull from './javascript/Skull.js'
 import Bones from './javascript/Bones.js'
-import Torch from './javascript/Torch.js'
 import Pillars  from './javascript/Pillars.js'
-// import Torch2 from './javascript/Torch2.js'
 import Walls from './javascript/Walls.js'
 import Ceilings from './javascript/Ceilings.js'
-import Floors from './javascript/Floors.js'
 import WetFloors from './javascript/WetFloor.js'
 import FlashLight from './javascript/FlashLight.js'
-import TorchLight from './javascript/TorchLight.js'
 import Planes from './javascript/Planes.js'
 import Graffiti from './javascript/Graffiti.js'
 import Lader from './javascript/Lader.js'
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import CircleRoom from './javascript/CircleRoom.js'
-import { TweenLite, TimelineLite } from 'gsap/all'
+import { TimelineLite } from 'gsap/all'
 import walkSound from './audios/walk-sound.mp3'
 import ambientSound from './audios/ambient-sound.mp3'
 import ambientMusic from './audios/music.mp3'
@@ -80,8 +75,6 @@ $bonesSkullDescriptionImage.src = bonesSkullDescriptionImage
 bonesSkullDescriptionImageContainer.appendChild($bonesSkullDescriptionImage)
 $bonesSkullDescriptionImage.setAttribute('alt', 'bonesSkullDescription image')
 
-
-
 /**
  * Sizes
  */
@@ -109,12 +102,7 @@ const scene = new THREE.Scene()
 /**
  * Objects
  */
-
 //Add walls
-
-// const graffWall = new Graffiti()
-// scene.add(graffWall.fourGroup)
-
 //First segment
 const firstSegment = new THREE.Group()
 firstSegment.position.set(0,0,-6)
@@ -206,7 +194,6 @@ const wall20 = new Walls(1,2,2,9.5,9)
 fourthSegment.add(wall20.group)
 
 //Add Graffiti
-
 const graffWall1 = new Graffiti(1.5,-5.95,0)
 firstSegment.add(graffWall1.fourGroup)
 
@@ -219,12 +206,11 @@ thirdSegment.add(graffWall3.secondGroup)
 const graffWall4 = new Graffiti(2,9.95,Math.PI)
 fourthSegment.add(graffWall4.firstGroup)
 
-//Models
-
+/**
+ * Models
+ */
 //Bones and skull
-
-//Group 1 BonesSkull
-
+// Group 1 BonesSkull
 const bonesSkullG1 = new THREE.Group()
 bonesSkullG1.position.set(0,0,0.5)
 secondSegment.add(bonesSkullG1)
@@ -248,7 +234,6 @@ const skull2 = new Skull(1.78,0,1.9,Math.PI,Math.PI*0.65,0,0.01)
 bonesSkullG1.add(skull2.group)
 
 //Group 2 BonesSkull
-
 const bonesSkullG2 = new THREE.Group()
 bonesSkullG2.position.set(0,0,5)
 thirdSegment.add(bonesSkullG2)
@@ -260,7 +245,6 @@ const skull3 = new Skull(2.2,0,2.5,Math.PI,Math.PI*0.8,0,0.04)
 circleRoomGroup.add(skull3.group)
 
 //Group 3 BonesSkull
-
 const bonesSkullG3 = new THREE.Group()
 bonesSkullG3.position.set(0,0.05,-2)
 fourthSegment.add(bonesSkullG3)
@@ -286,31 +270,7 @@ bonesSkullG3.add(bonesG3_6.group)
 const skull4 = new Skull(0.8,0,-13.8,Math.PI,Math.PI*0.2,0,0.01)
 fourthSegment.add(skull4.group)
 
-//Torchs
-
-const torch1 = new Torch(-0.91,1,0,0,Math.PI*0.5,0)
-firstSegment.add(torch1.group)
-
-const torch2 = new Torch(4.2,1,-5.91,0,0,0)
-firstSegment.add(torch2.group)
-
-const torch3 = new Torch(0,1,-3.9,0,0,0)
-secondSegment.add(torch3.group)
-
-const torch4 = new Torch(0,1,3.9,0,Math.PI,0)
-secondSegment.add(torch4.group)
-
-const torch5 = new Torch(14,1,0.9,0,Math.PI,0)
-secondSegment.add(torch5.group)
-
-const torch6 = new Torch(-2.90,1,-0.9,0,Math.PI*0.5,0)
-fourthSegment.add(torch6.group)
-
-const torch7 = new Torch(2.90,1,-0.9,0,-Math.PI*0.5,0)
-fourthSegment.add(torch7.group)
-
 //Ladders
-
 const ladderEntry = new Lader(0.1,0,4.7,Math.PI*0.5,0,0)
 firstSegment.add(ladderEntry.group)
 
@@ -318,7 +278,6 @@ const ladderExit = new Lader(8.5,0,9.1,Math.PI*0.5,-Math.PI*0.5, Math.PI*0.5)
 fourthSegment.add(ladderExit.group)
 
 //Pillars
-
 const pillar0 = new Pillars(1,1,-12,1)
 secondSegment.add(pillar0.group)
 
@@ -387,7 +346,6 @@ const wetFloor4 = new WetFloors(18,14,3,3)
 fourthSegment.add(wetFloor4.group)
 
 //Add ceiling
-
 const ceiling1 = new Ceilings(12, 12,3,0)
 firstSegment.add(ceiling1.group)
 
@@ -404,7 +362,6 @@ fourthSegment.add(ceiling4.group)
 const bunkerWall = new Planes(28,-35.5)
 scene.add(bunkerWall.group)
 
-
 /**
  * Camera
  */
@@ -416,39 +373,11 @@ scene.add(camera)
 /**
  * Lights
  */
-
-const ambientLight = new THREE.AmbientLight(0xffffff, 1)
+const ambientLight = new THREE.AmbientLight(0xffffff, .1)
 scene.add(ambientLight)
-
-const torchLight1 = new TorchLight(-0.5, 1.5, -6)
-scene.add(torchLight1.group)
-
-const torchLight2 = new TorchLight(4, 1.5, -11.5)
-scene.add(torchLight2.group)
-
-const torchLight3 = new TorchLight(12.8, 1.5, -7.5)
-scene.add(torchLight3.group)
-
-const torchLight4 = new TorchLight(12.8, 1.5, -14.5)
-scene.add(torchLight4.group)
-
-const torchLight5 = new TorchLight(27, 1.5, -10)
-scene.add(torchLight5.group)
-
-const torchLight6 = new TorchLight(37.5, 1.5, -21)
-scene.add(torchLight6.group)
-
-const torchLight7 = new TorchLight(42.5, 1.5, -21)
-scene.add(torchLight7.group)
-
-// const torchLight5 = new TorchLight(27, 1.5, -10)
-// scene.add(torchLight5.group)
 
 const flashLight = new FlashLight(0, 0, 0)
 scene.add(flashLight.group)
-// const directionalLight = new THREE.DirectionalLight(0x00fffc, 0.3)
-// directionalLight.position.set(0,1,1)
-// scene.add(directionalLight)
 
 /**
  * Sounds
@@ -578,13 +507,12 @@ tl.to(camera.position, 2, {z: - 8, ease: 'Power3.easeInOut'})
 window.addEventListener('wheel', (_event) => {
     if(canScroll){
         // Accept the scroll
-        setTimeout(function() {
+        setTimeout(function(){
             canScroll = true
         }, 2000)
 
         // If we scroll down
-        if(_event.deltaY > 0)
-        {
+        if(_event.deltaY > 0){
             tl.play()
             walk.currentTime = 0
             walk.play()
@@ -600,8 +528,7 @@ window.addEventListener('wheel', (_event) => {
         }
 
         // If we scroll up
-        if(_event.deltaY < 0)
-        {
+        if(_event.deltaY < 0){
             tl.reverse()
             walk.currentTime = 0
             walk.play()
@@ -626,17 +553,10 @@ renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(window.devicePixelRatio)
 document.body.appendChild(renderer.domElement)
 
-/* 
-    Orbits Controls
-*/
-// const cameraControls = new OrbitControls(camera, renderer.domElement)
-// cameraControls.zoomSpeed = 0.3
-// cameraControls.enableDamping = true
-
 /**
  * Resize
  */
-window.addEventListener('resize', () =>{
+window.addEventListener('resize', () => {
     sizes.width = window.innerWidth
     sizes.height = window.innerHeight
 
@@ -660,8 +580,6 @@ const loop = () => {
 
     //Update flashLight coord
     flashLight.group.position.set(camera.position.x, camera.position.y, camera.position.z)
-
-    // cameraControls.update()
 
     // Cursor raycasting
     // Graffiti
@@ -726,5 +644,17 @@ loop()
 
 window.addEventListener('load', () =>
 {
-    console.log('load')
+    document.querySelector('.loading img').style.animation = 'none'
+    document.querySelector('.loading h1').style.animation = 'loadOpacity 5s'
+
+    document.querySelector('.loading h1').addEventListener('animationend', () =>
+    {
+        document.querySelector('.loading h1').style.opacity = '1'
+        document.querySelector('.loading').style.animation = 'loadHome 1s'
+    })
+
+    window.setTimeout( () =>
+    {
+        document.querySelector('.loading').style.display = 'none'
+    },6000)
 })
