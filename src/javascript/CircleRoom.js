@@ -13,8 +13,8 @@ import wallAlphaSource from '../textures/walls/alphaMap.jpg'
 const textureLoader = new THREE.TextureLoader()
 
 const wallColorTexture = textureLoader.load(wallColorSource)
-wallColorTexture.repeat.x = 8
-wallColorTexture.repeat.y = 2
+wallColorTexture.repeat.x = 25
+wallColorTexture.repeat.y = 25
 wallColorTexture.wrapS = THREE.RepeatWrapping
 wallColorTexture.wrapT = THREE.RepeatWrapping
 

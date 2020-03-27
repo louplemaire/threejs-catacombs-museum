@@ -486,8 +486,9 @@ const landingPage = document.querySelector(".landing")
 const popups = document.querySelectorAll('.js-popup-information')
 
 startButton.addEventListener('click', () => {
+
     // Start
-    landingPage.style.opacity = 0
+    window.setInterval(landingPage.classList.add('is-visible'),1000)
     landingPage.classList.add('is-visible')
 
     // Play sound
