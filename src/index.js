@@ -274,7 +274,7 @@ fourthSegment.add(skull4.group)
 const ladderEntry = new Lader(0.1,0,4.7,Math.PI*0.5,0,0)
 firstSegment.add(ladderEntry.group)
 
-const ladderExit = new Lader(8.5,0,9.1,Math.PI*0.5,-Math.PI*0.5, Math.PI*0.5)
+const ladderExit = new Lader(4.8,0,9.1,Math.PI*0.1,Math.PI*0.5,Math.PI*0.5)
 fourthSegment.add(ladderExit.group)
 
 //Pillars

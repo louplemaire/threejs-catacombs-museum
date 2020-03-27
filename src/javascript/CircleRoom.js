@@ -9,8 +9,8 @@ import wallAlphaSource from '../textures/walls/alphaMap.jpg'
 const textureLoader = new THREE.TextureLoader()
 
 const wallColorTexture = textureLoader.load(wallColorSource)
-wallColorTexture.repeat.x = 25
-wallColorTexture.repeat.y = 25
+wallColorTexture.repeat.x = 4
+wallColorTexture.repeat.y = 4
 wallColorTexture.wrapS = THREE.RepeatWrapping
 wallColorTexture.wrapT = THREE.RepeatWrapping
 
@@ -32,6 +32,7 @@ export default class CircleRoom {
                 displacementMap: wallDisplacementTexture,
                 displacementScale: 0.1,
                 roughnessMap: wallRoughnessTexture,
+                roughness: 0,
                 alphaMap: wallAlphaTexture,
                 normalMap: wallNormalTexture,
                 side: THREE.DoubleSide
