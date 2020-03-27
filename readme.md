@@ -1,8 +1,22 @@
 # Three.js Catacombs Museum
 
-An immersion in the forbidden corridors of the Catacombs of Paris.
+Immerse yourself in the Catabombs of Paris forbidden to the public.
 
-Textures by texturehaven.com
+## Features
+
+- Click on the objects to see an information sheet
+- Scroll navigation
+
+## Resource
+
+### Textures
+
+- texturehaven.com
+- poliigon.com
+
+### Models
+
+- sketchfab.com
 
 ## Instructions
 
