@@ -427,29 +427,34 @@ const popups = document.querySelectorAll('.js-popup-information')
 startButton.addEventListener('click', () => {
 
     // Start
-    window.setInterval(landingPage.classList.add('is-visible'),1000)
-    landingPage.classList.add('is-visible')
-
-    // Play sound
-    sound.play()
-    sound.loop = true
-
-    music.play()
-    music.loop = true
-
-    paper.currentTime = 0
-    paper.play()
-
-    // Open welcome popup
-    popups[0].classList.remove('is-visible')
-
-    // Active the scroll
-    canScroll = true
-
-    // Active open popups
-    canOpen = true
-
-    document.querySelector('body').appendChild(muteButton)
+    landingPage.style.animation = 'scaleLanding 2s'
+    landingPage.addEventListener('animationend', () =>
+    {
+        window.setInterval(landingPage.classList.add('is-visible'),1000)
+        landingPage.classList.add('is-visible')
+    
+        // Play sound
+        sound.play()
+        sound.loop = true
+    
+        music.play()
+        music.loop = true
+    
+        paper.currentTime = 0
+        paper.play()
+    
+        // Open welcome popup
+        popups[0].classList.remove('is-visible')
+    
+        // Active the scroll
+        canScroll = true
+    
+        // Active open popups
+        canOpen = true
+        
+        //Add mute volume button
+        document.querySelector('body').appendChild(muteButton)
+    })
 })
 
 // Mute sound
@@ -511,12 +516,15 @@ document.addEventListener('click', () =>{
 
 // Close cultural popup
 window.addEventListener('keydown', (_event) => {
-    popups.forEach(_popup => {
-        _popup.classList.add('is-visible')
-
-        paper.currentTime = 0
-        paper.play()
-    })
+    if(popupIsClose === false)
+    {
+        popups.forEach(_popup => {
+            _popup.classList.add('is-visible')
+    
+            paper.currentTime = 0
+            paper.play()
+        })
+    }
     popupIsClose = true
 })
 
@@ -526,9 +534,12 @@ window.addEventListener('keydown', (_event) => {
 const tl = new TimelineLite()
 tl.pause()
 
-tl.to(camera.position, 2, {z: - 8, ease: 'Power3.easeInOut'})
+tl.to(camera.position, 2, {z: - 4, ease: 'Power3.easeInOut'})
+.to(camera.position, 2, {z: - 8, ease: 'Power3.easeInOut'})
 .to(camera.position, 2, {z: - 11, ease: 'Power3.easeInOut'})
+.to(camera.position, 2, {x: 5, ease: 'Power3.easeInOut'})
 .to(camera.position, 2, {x: 10, ease: 'Power3.easeInOut'})
+.to(camera.position, 2, {x: 20, ease: 'Power3.easeInOut'})
 .to(camera.position, 2, {x: 28, ease: 'Power3.easeInOut'})
 .to(camera.position, 2, {z: - 20, ease: 'Power3.easeInOut'})
 .to(camera.position, 2, {z: - 33, ease: 'Power3.easeInOut'})
