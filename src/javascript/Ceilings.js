@@ -1,9 +1,4 @@
 import * as THREE from 'three'
-
-/* 
- * Textures
-*/
-
 import ceilingColorSource from '../textures/ceiling/color.jpg'
 import ceilingAmbientOcclusionSource from '../textures/ceiling/ambientOcclusion.jpg'
 import ceilingDisplacementSource from '../textures/ceiling/displacement.jpg'
@@ -25,28 +20,21 @@ const ceilingNormalTexture = textureLoader.load(ceilingNormalSource)
 const ceilingRoughnessTexture = textureLoader.load(ceilingRoughnessSource)
 const ceilingAlphaTexture = textureLoader.load(ceilingAlphaSource)
 
-/**
- * ceilings
- */
-
 export default class Ceilings {
     constructor(_length, _width, _x, _z){
         this.group = new THREE.Group()
 
         const ceiling = new THREE.Mesh(
             new THREE.PlaneGeometry(_length, _width, 40, 40),
-            new THREE.MeshStandardMaterial
-            (
-                {
-                    map: ceilingColorTexture,
-                    aoMap: ceilingAmbientOcclusionTexture,
-                    displacementMap: ceilingDisplacementTexture,
-                    displacementScale: 0.1,
-                    roughnessMap: ceilingRoughnessTexture,
-                    alphaMap: ceilingAlphaTexture,
-                    normalMap: ceilingNormalTexture,
-                }
-            )
+            new THREE.MeshStandardMaterial({
+                map: ceilingColorTexture,
+                aoMap: ceilingAmbientOcclusionTexture,
+                displacementMap: ceilingDisplacementTexture,
+                displacementScale: 0.1,
+                roughnessMap: ceilingRoughnessTexture,
+                alphaMap: ceilingAlphaTexture,
+                normalMap: ceilingNormalTexture,
+            })
         )
 
         ceiling.position.set(_x, 2, _z)
