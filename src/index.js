@@ -506,13 +506,12 @@ tl.to(camera.position, 2, {z: - 8, ease: 'Power3.easeInOut'})
 window.addEventListener('wheel', (_event) => {
     if(canScroll){
         // Accept the scroll
-        setTimeout(function() {
+        setTimeout(function(){
             canScroll = true
         }, 2000)
 
         // If we scroll down
-        if(_event.deltaY > 0)
-        {
+        if(_event.deltaY > 0){
             tl.play()
             walk.currentTime = 0
             walk.play()
@@ -528,8 +527,7 @@ window.addEventListener('wheel', (_event) => {
         }
 
         // If we scroll up
-        if(_event.deltaY < 0)
-        {
+        if(_event.deltaY < 0){
             tl.reverse()
             walk.currentTime = 0
             walk.play()

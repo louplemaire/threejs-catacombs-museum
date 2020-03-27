@@ -1,3 +1,4 @@
+import * as THREE from 'three'
 import wallColorSource from '../textures/walls/color.jpg'
 import wallAmbientOcclusionSource from '../textures/walls/ambientOcclusion.jpg'
 import wallDisplacementSource from '../textures/walls/displacement.jpg'
@@ -14,8 +15,6 @@ const wallDisplacementTexture = textureLoader.load(wallDisplacementSource)
 const wallNormalTexture = textureLoader.load(wallNormalSource)
 const wallRoughnessTexture = textureLoader.load(wallRoughnessSource)
 const wallAlphaTexture = textureLoader.load(wallAlphaSource)
-
-import * as THREE from 'three'
 
 export default class Walls {
     constructor(_width,_height,_depth,_x,_z){
