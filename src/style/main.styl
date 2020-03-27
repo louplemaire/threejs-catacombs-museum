@@ -134,6 +134,52 @@ body
             opacity 0.6
             transition 0.3s
             transition-timing-function ease-in-out
+    .controls
+        position absolute
+        width 100vw
+        height auto
+        left -45vw
+        top -1vh
+        opacity 0
+        z-index 0
+        transition all 0.5s ease-in 0s
+        display flex
+        flex-direction row
+        justify-content space-between
+        will-change opacity
+        h3
+            width 50%
+            height auto
+            font-size 50px
+            color white
+            text-align center
+            font-family $font-title
+            color $primary-color
+            z-index 2
+    .controlscontainer
+        position absolute
+        left 50%
+        bottom 50px
+        transform translateX(-50%)
+        z-index 30
+        &:hover .controls
+                opacity 1
+                z-index 1000
+        .controls-button
+            text-decoration none
+            font-family $font-title
+            font-size $font-size-subtitle
+            letter-spacing 10px
+            text-transform uppercase
+            color $primary-color
+            will-change opacity
+            &:hover
+                opacity 0.6
+                transition 0.3s
+                transition-timing-function ease-in-out
+            
+    
+
 
 /**
  * Cultural content
