@@ -202,7 +202,7 @@ firstSegment.add(graffWall1.fourGroup)
 const graffWall2 = new Graffiti(8,0.95,Math.PI)
 secondSegment.add(graffWall2.thirdGroup)
 
-const graffWall3 = new Graffiti(12.95,0,-Math.PI*0.5)
+const graffWall3 = new Graffiti(9.15,6,Math.PI*0.5)
 thirdSegment.add(graffWall3.secondGroup)
 
 const graffWall4 = new Graffiti(2,9.95,Math.PI)
@@ -276,7 +276,7 @@ fourthSegment.add(skull4.group)
 const ladderEntry = new Lader(0.1,0,4.7,Math.PI*0.5,0,0)
 firstSegment.add(ladderEntry.group)
 
-const ladderExit = new Lader(4.8,0,9.1,Math.PI*0.1,Math.PI*0.5,Math.PI*0.5)
+const ladderExit = new Lader(6.8,0,9.6,Math.PI*0.5,0,0)
 fourthSegment.add(ladderExit.group)
 
 //Pillars

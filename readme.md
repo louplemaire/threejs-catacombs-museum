@@ -1,25 +1,18 @@
-# Three.js Catacombs Museum
-
-Immerse yourself in the Catabombs of Paris forbidden to the public.
-
-## Features
-
+# Three.js Catacombs Museum  ☠️
+❌  Immerse yourself in the Catabombs of Paris forbidden to the public.  ❌
+## Features 🛠
 - Click on the objects to see an information sheet
 - Scroll navigation
 
-## Resource
-
-### Textures
-
+## Resource  💻
+### Textures 🎨
 - texturehaven.com
 - poliigon.com
 
-### Models
-
+### Models 👤
 - sketchfab.com
 
-## Instructions
-
+## Instructions  ☑️
 Install dependencies
 
 ```npm i```
