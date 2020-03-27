@@ -23,6 +23,8 @@ import walkSound from './audios/walk-sound.mp3'
 import ambientSound from './audios/ambient-sound.mp3'
 import ambientMusic from './audios/music.mp3'
 import paperSound from './audios/paper.mp3'
+import SoundOn from './images/volumeOn.svg'
+import SoundOff from './images/volumeOff.svg'
 
 /**
  * Images
@@ -458,6 +460,15 @@ music.volume = 0.2
 const paper = new Audio(paperSound)
 paper.volume = 0.5
 
+//Volume button
+
+const muteButton = document.createElement('div')
+muteButton.classList.add('mute-button')
+const volumeImg = new Image()
+volumeImg.src = SoundOn
+volumeImg.setAttribute('alt', 'sound on')
+muteButton.appendChild(volumeImg)
+
 /**
  * Raycaster
  */
@@ -501,6 +512,32 @@ startButton.addEventListener('click', () => {
 
     // Active open popups
     canOpen = true
+
+    document.querySelector('body').appendChild(muteButton)
+})
+
+muteButton.addEventListener('click', () =>
+{
+    if(music.volume === 0)
+    {
+        walk.volume = 0.6
+        sound.volume = 1
+        music.volume = 0.2
+        paper.volume = 0.5
+
+        volumeImg.src = SoundOn
+        volumeImg.setAttribute('alt', 'sound on')
+    }
+    else
+    {
+        walk.volume = 0
+        sound.volume = 0
+        music.volume = 0
+        paper.volume = 0
+
+        volumeImg.src = SoundOff
+        volumeImg.setAttribute('alt', 'sound off')
+    }
 })
 
 // Open cultural popup
