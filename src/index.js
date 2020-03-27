@@ -516,7 +516,7 @@ document.addEventListener('click', () =>{
 
 // Close cultural popup
 window.addEventListener('keydown', (_event) => {
-    if(popupIsClose === false)
+    if(popupIsClose === false && landingPage.classList.contains('is-visible'))
     {
         popups.forEach(_popup => {
             _popup.classList.add('is-visible')
@@ -524,8 +524,8 @@ window.addEventListener('keydown', (_event) => {
             paper.currentTime = 0
             paper.play()
         })
+        popupIsClose = true
     }
-    popupIsClose = true
 })
 
 /**
