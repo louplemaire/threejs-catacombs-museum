@@ -396,8 +396,7 @@ music.volume = 0.2
 const paper = new Audio(paperSound)
 paper.volume = 0.5
 
-//Volume button
-
+//Mute button
 const muteButton = document.createElement('div')
 muteButton.classList.add('mute-button')
 const volumeImg = new Image()
@@ -452,10 +451,9 @@ startButton.addEventListener('click', () => {
     document.querySelector('body').appendChild(muteButton)
 })
 
-muteButton.addEventListener('click', () =>
-{
-    if(music.volume === 0)
-    {
+// Mute sound
+muteButton.addEventListener('click', () => {
+    if(music.volume === 0){
         walk.volume = 0.6
         sound.volume = 1
         music.volume = 0.2
@@ -463,9 +461,7 @@ muteButton.addEventListener('click', () =>
 
         volumeImg.src = SoundOn
         volumeImg.setAttribute('alt', 'sound on')
-    }
-    else
-    {
+    } else{
         walk.volume = 0
         sound.volume = 0
         music.volume = 0
