@@ -1,12 +1,9 @@
 import * as THREE from 'three'
-
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
 
-export default class Skull
-{
-    constructor(_x,_y,_z,_rotX,_rotY,_rotZ,_scale)
-    {
+export default class Skull {
+    constructor(_x,_y,_z,_rotX,_rotY,_rotZ,_scale){
         this.group = new THREE.Group()
 
         const dracoLoader = new DRACOLoader()
@@ -19,8 +16,7 @@ export default class Skull
 
         gtlfLoader.load(
             '/models/skull/skull.gltf',
-            (_gltf) =>
-            {
+            (_gltf) => {
                 this.skull = _gltf.scene
                 this.skull.position.set(_x, _y, _z)
                 this.skull.rotation.set(_rotX,_rotY,_rotZ)
