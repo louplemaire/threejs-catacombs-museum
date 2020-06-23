@@ -202,7 +202,7 @@ firstSegment.add(graffWall1.fourGroup)
 const graffWall2 = new Graffiti(8,0.95,Math.PI)
 secondSegment.add(graffWall2.thirdGroup)
 
-const graffWall3 = new Graffiti(12.95,0,-Math.PI*0.5)
+const graffWall3 = new Graffiti(9.15,6,Math.PI*0.5)
 thirdSegment.add(graffWall3.secondGroup)
 
 const graffWall4 = new Graffiti(2,9.95,Math.PI)
@@ -276,7 +276,7 @@ fourthSegment.add(skull4.group)
 const ladderEntry = new Lader(0.1,0,4.7,Math.PI*0.5,0,0)
 firstSegment.add(ladderEntry.group)
 
-const ladderExit = new Lader(8.5,0,9.1,Math.PI*0.5,-Math.PI*0.5, Math.PI*0.5)
+const ladderExit = new Lader(6.8,0,9.6,Math.PI*0.5,0,0)
 fourthSegment.add(ladderExit.group)
 
 //Pillars
@@ -425,30 +425,36 @@ const landingPage = document.querySelector(".landing")
 const popups = document.querySelectorAll('.js-popup-information')
 
 startButton.addEventListener('click', () => {
+
     // Start
-    landingPage.style.opacity = 0
-    landingPage.classList.add('is-visible')
-
-    // Play sound
-    sound.play()
-    sound.loop = true
-
-    music.play()
-    music.loop = true
-
-    paper.currentTime = 0
-    paper.play()
-
-    // Open welcome popup
-    popups[0].classList.remove('is-visible')
-
-    // Active the scroll
-    canScroll = true
-
-    // Active open popups
-    canOpen = true
-
-    document.querySelector('body').appendChild(muteButton)
+    landingPage.style.animation = 'scaleLanding 2s'
+    landingPage.addEventListener('animationend', () =>
+    {
+        window.setInterval(landingPage.classList.add('is-visible'),1000)
+        landingPage.classList.add('is-visible')
+    
+        // Play sound
+        sound.play()
+        sound.loop = true
+    
+        music.play()
+        music.loop = true
+    
+        paper.currentTime = 0
+        paper.play()
+    
+        // Open welcome popup
+        popups[0].classList.remove('is-visible')
+    
+        // Active the scroll
+        canScroll = true
+    
+        // Active open popups
+        canOpen = true
+        
+        //Add mute volume button
+        document.querySelector('body').appendChild(muteButton)
+    })
 })
 
 // Mute sound
@@ -510,13 +516,16 @@ document.addEventListener('click', () =>{
 
 // Close cultural popup
 window.addEventListener('keydown', (_event) => {
-    popups.forEach(_popup => {
-        _popup.classList.add('is-visible')
-
-        paper.currentTime = 0
-        paper.play()
-    })
-    popupIsClose = true
+    if(popupIsClose === false && landingPage.classList.contains('is-visible'))
+    {
+        popups.forEach(_popup => {
+            _popup.classList.add('is-visible')
+    
+            paper.currentTime = 0
+            paper.play()
+        })
+        popupIsClose = true
+    }
 })
 
 /**
@@ -525,9 +534,12 @@ window.addEventListener('keydown', (_event) => {
 const tl = new TimelineLite()
 tl.pause()
 
-tl.to(camera.position, 2, {z: - 8, ease: 'Power3.easeInOut'})
+tl.to(camera.position, 2, {z: - 4, ease: 'Power3.easeInOut'})
+.to(camera.position, 2, {z: - 8, ease: 'Power3.easeInOut'})
 .to(camera.position, 2, {z: - 11, ease: 'Power3.easeInOut'})
+.to(camera.position, 2, {x: 5, ease: 'Power3.easeInOut'})
 .to(camera.position, 2, {x: 10, ease: 'Power3.easeInOut'})
+.to(camera.position, 2, {x: 20, ease: 'Power3.easeInOut'})
 .to(camera.position, 2, {x: 28, ease: 'Power3.easeInOut'})
 .to(camera.position, 2, {z: - 20, ease: 'Power3.easeInOut'})
 .to(camera.position, 2, {z: - 33, ease: 'Power3.easeInOut'})

@@ -9,8 +9,8 @@ import ceilingAlphaSource from '../textures/ceiling/alphaMap.jpg'
 const textureLoader = new THREE.TextureLoader()
 
 const ceilingColorTexture = textureLoader.load(ceilingColorSource)
-ceilingColorTexture.repeat.x = 25
-ceilingColorTexture.repeat.y = 25
+ceilingColorTexture.repeat.x = 100
+ceilingColorTexture.repeat.y = 100
 ceilingColorTexture.wrapS = THREE.RepeatWrapping
 ceilingColorTexture.wrapT = THREE.RepeatWrapping
 
