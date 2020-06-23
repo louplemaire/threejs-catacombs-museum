@@ -31,3 +31,5 @@ Launch dev server
 Build for production
 
 ```npm run build```
+
+> ⚠️ WARNING : This work was carried out as part of a pedagogical project and for pedagogical purposes. The exploitation rights have not been audited or acquired.
